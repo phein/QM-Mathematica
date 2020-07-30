@@ -1,0 +1,3195 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[    131034,       3186]
+NotebookOptionsPosition[    125543,       3012]
+NotebookOutlinePosition[    127170,       3063]
+CellTagsIndexPosition[    126834,       3051]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Particle in an Infinite Spherical Well", "DemoTitle",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4396019470859423`*^9, 3.439601957098339*^9}, {
+   3.4396019893738413`*^9, 3.439601999787084*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["", "InitializationSection",
+ CellID->142240353],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+   RowBox[{"k", "[", 
+    RowBox[{"l_", ",", "n_"}], "]"}], ":=", 
+   RowBox[{"BesselJZero", "[", 
+    RowBox[{
+     RowBox[{"l", "+", 
+      RowBox[{"1", "/", "2"}]}], ",", "n"}], "]"}]}], " ", "*)"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.441054000330207*^9, 3.441054006757114*^9}, {
+   3.441213253962796*^9, 3.441213259846952*^9}, {3.441213560681946*^9, 
+   3.441213572600157*^9}},
+ CellID->26758279],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"k", "[", 
+    RowBox[{"0", ",", "1"}], "]"}], "=", "3.14159"}], ";", 
+  RowBox[{
+   RowBox[{"k", "[", 
+    RowBox[{"0", ",", "2"}], "]"}], "=", "6.28319"}], ";", 
+  RowBox[{
+   RowBox[{"k", "[", 
+    RowBox[{"0", ",", "3"}], "]"}], "=", "9.42478"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"k", "[", 
+    RowBox[{"1", ",", "1"}], "]"}], "=", "4.49341"}], ";", 
+  RowBox[{
+   RowBox[{"k", "[", 
+    RowBox[{"1", ",", "2"}], "]"}], "=", " ", "7.72525"}], ";", 
+  RowBox[{
+   RowBox[{"k", "[", 
+    RowBox[{"1", ",", "3"}], "]"}], "=", "10.9041"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"k", "[", 
+    RowBox[{"2", ",", "1"}], "]"}], "=", "5.76346"}], ";", " ", 
+  RowBox[{
+   RowBox[{"k", "[", 
+    RowBox[{"2", ",", "2"}], "]"}], "=", "9.09501"}], ";", 
+  RowBox[{
+   RowBox[{"k", "[", 
+    RowBox[{"2", ",", "3"}], "]"}], "=", "12.3229"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"k", "[", 
+    RowBox[{"3", ",", "1"}], "]"}], "=", "6.98793"}], ";", " ", 
+  RowBox[{
+   RowBox[{"k", "[", 
+    RowBox[{"3", ",", "2"}], "]"}], "=", "10.4171"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"k", "[", 
+    RowBox[{"4", ",", "1"}], "]"}], "=", "8.18256"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"k", "[", 
+    RowBox[{"5", ",", "1"}], "]"}], "=", "9.35581"}], ";", 
+  RowBox[{
+   RowBox[{"k", "[", 
+    RowBox[{"6", ",", "1"}], "]"}], "=", "10.5128"}], ";"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4409818740164003`*^9, 3.440981884852556*^9}, {
+   3.4409819960417128`*^9, 3.4409820536279716`*^9}, 3.440982097816255*^9, {
+   3.4409821290048513`*^9, 3.440982190069232*^9}, {3.44098226840536*^9, 
+   3.440982279792059*^9}, {3.440982566906557*^9, 3.440982737168293*^9}, {
+   3.440982784333044*^9, 3.440982852194962*^9}, 3.441053977825777*^9, {
+   3.441218719578807*^9, 3.441218739792775*^9}},
+ CellID->389112961],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Y", "[", 
+    RowBox[{"0", ",", "0", ",", "z_", ",", "x_"}], "]"}], ":=", "1"}], ";", 
+  RowBox[{
+   RowBox[{"Y", "[", 
+    RowBox[{"1", ",", "0", ",", "z_", ",", "x_"}], "]"}], ":=", "z"}], ";", 
+  RowBox[{
+   RowBox[{"Y", "[", 
+    RowBox[{"1", ",", "1", ",", "z_", ",", "x_"}], "]"}], ":=", "x"}], ";", 
+  RowBox[{
+   RowBox[{"Y", "[", 
+    RowBox[{"2", ",", "0", ",", "z_", ",", "x_"}], "]"}], ":=", 
+   RowBox[{
+    SuperscriptBox["x", "2"], "-", 
+    RowBox[{"2", 
+     SuperscriptBox["z", "2"]}]}]}], ";", 
+  RowBox[{
+   RowBox[{"Y", "[", 
+    RowBox[{"2", ",", "1", ",", "z_", ",", "x_"}], "]"}], ":=", 
+   RowBox[{"z", " ", "x"}]}], ";", 
+  RowBox[{
+   RowBox[{"Y", "[", 
+    RowBox[{"2", ",", "2", ",", "z_", ",", "x_"}], "]"}], ":=", 
+   SuperscriptBox["x", "2"]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.439603750867177*^9, 3.43960389460397*^9}, {
+   3.439603978528512*^9, 3.439604016174967*^9}, {3.439604048776228*^9, 
+   3.4396040647847567`*^9}, {3.43960413058018*^9, 3.4396041417250566`*^9}, {
+   3.439604173699589*^9, 3.439604183269767*^9}, {3.439604229319043*^9, 
+   3.4396042664152946`*^9}, {3.439604309295224*^9, 3.439604368305356*^9}, {
+   3.441218061103141*^9, 3.441218078505596*^9}, {3.4412182163163633`*^9, 
+   3.4412182182842417`*^9}, {3.4638394624768133`*^9, 3.4638394962416973`*^9}},
+ CellID->431756264],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Psi]", "[", 
+   RowBox[{"l_", ",", "n_", ",", "m_", ",", "z_", ",", "x_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"SphericalBesselJ", "[", 
+    RowBox[{"l", ",", 
+     RowBox[{
+      RowBox[{"k", "[", 
+       RowBox[{"l", ",", "n"}], "]"}], 
+      SqrtBox[
+       RowBox[{
+        SuperscriptBox["z", "2"], "+", 
+        SuperscriptBox["x", "2"]}]]}]}], "]"}], 
+   RowBox[{"Boole", "[", 
+    RowBox[{
+     SqrtBox[
+      RowBox[{
+       SuperscriptBox["z", "2"], "+", 
+       SuperscriptBox["x", "2"]}]], "\[LessEqual]", "1"}], "]"}], 
+   RowBox[{"Y", "[", 
+    RowBox[{"l", ",", "m", ",", "z", ",", "x"}], "]"}]}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.439602096283618*^9, 3.4396021594948597`*^9}, {
+   3.439602231247263*^9, 3.439602291129792*^9}, {3.439602337037468*^9, 
+   3.439602384135384*^9}, {3.439602418984138*^9, 3.439602428514728*^9}, {
+   3.439602472103965*^9, 3.439602538440976*^9}, {3.43960257779482*^9, 
+   3.439602596278521*^9}, 3.439602745008301*^9, {3.4396032504827423`*^9, 
+   3.439603252250195*^9}, 3.4396032885781803`*^9, {3.4396034131765633`*^9, 
+   3.439603419239493*^9}, {3.439603475418552*^9, 3.4396034777174053`*^9}, {
+   3.439604403513773*^9, 3.43960444568436*^9}},
+ CellID->143511145],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"g1", "[", 
+   RowBox[{"l_", ",", "n_", ",", "m_"}], "]"}], ":=", 
+  RowBox[{"RegionPlot", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"\[Psi]", "[", 
+      RowBox[{"l", ",", "n", ",", "m", ",", "z", ",", "x"}], "]"}], ">", 
+     "0"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"z", ",", 
+      RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", 
+      RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+    RowBox[{"Frame", "\[Rule]", "None"}], ",", 
+    RowBox[{"PlotStyle", "->", "LightBlue"}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.439602891470244*^9, 3.439603004529027*^9}, {
+   3.4396030401826*^9, 3.439603065684986*^9}, {3.439603146813549*^9, 
+   3.4396031484719887`*^9}, {3.439770051778818*^9, 3.4397700530375566`*^9}, 
+   3.439770555314637*^9},
+ CellID->336112153],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"g2", "[", 
+   RowBox[{"l_", ",", "n_", ",", "m_"}], "]"}], ":=", 
+  RowBox[{"ContourPlot", "[", 
+   RowBox[{
+    RowBox[{"\[Psi]", "[", 
+     RowBox[{"l", ",", "n", ",", "m", ",", "z", ",", "x"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"z", ",", 
+      RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", 
+      RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+    RowBox[{"PlotPoints", "\[Rule]", "20"}], ",", 
+    RowBox[{"Contours", "\[Rule]", "5"}], ",", 
+    RowBox[{"Frame", "\[Rule]", "None"}], ",", 
+    RowBox[{"ContourShading", "\[Rule]", "None"}]}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4397703334944983`*^9, 3.439770385469846*^9}, 
+   3.439770539669538*^9, {3.43977096082535*^9, 3.439770964207486*^9}, {
+   3.441054040133897*^9, 3.4410540544718857`*^9}, {3.441220222562192*^9, 
+   3.441220233368293*^9}, 3.441220335066668*^9, 3.441220396642915*^9, {
+   3.441220543291006*^9, 3.44122054388032*^9}},
+ CellID->51022831],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"g0", "=", 
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{"Thick", ",", 
+      RowBox[{"Circle", "[", "]"}]}], "}"}], "]"}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.441054061622859*^9, 3.4410540922819223`*^9}, 
+   3.441054133484009*^9, {3.441208145663063*^9, 3.441208217084792*^9}, {
+   3.441208290668297*^9, 3.441208564501545*^9}, {3.4412086072486687`*^9, 
+   3.441208612181921*^9}, {3.441208648675911*^9, 3.44120867322683*^9}, {
+   3.441208706860606*^9, 3.441208723345024*^9}, {3.4412089141044693`*^9, 
+   3.44120892306238*^9}, {3.441208958824216*^9, 3.441208970325552*^9}, {
+   3.441209129809684*^9, 3.441209177555418*^9}},
+ CellID->623286515],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"label", "[", 
+   RowBox[{"l_", ",", "n_", ",", "m_"}], "]"}], ":=", 
+  RowBox[{"Graphics", "[", 
+   RowBox[{"Text", "[", 
+    RowBox[{
+     RowBox[{"Style", "[", 
+      RowBox[{
+       RowBox[{"Row", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Subscript", "[", 
+           RowBox[{"\"\<\[Psi]\>\"", ",", 
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{"n", " ", ",", "l", " ", ",", "m"}], "}"}], "]"}], 
+              ",", "Italic"}], "]"}]}], "]"}], ",", "\"\<(\>\"", ",", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<r\>\"", ",", "Italic"}], "]"}], ",", 
+          "\"\<, \[Theta], \[Phi])       \>\"", ",", 
+          RowBox[{"Style", "[", 
+           RowBox[{
+            RowBox[{"Subscript", "[", 
+             RowBox[{"\"\<E\>\"", ",", 
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{"n", ",", 
+                 RowBox[{"j", "[", "l", "]"}]}], "}"}], "]"}]}], "]"}], ",", 
+            "Italic"}], "]"}], ",", " ", "\"\< = \>\"", ",", 
+          RowBox[{"NumberForm", "[", 
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"k", "[", 
+              RowBox[{"l", ",", "n"}], "]"}], "2"], ",", "4"}], "]"}], ",", 
+          "\"\< \>\"", ",", 
+          RowBox[{"Superscript", "[", 
+           RowBox[{"\[HBar]", ",", "2"}], "]"}], ",", "\"\</2\>\"", ",", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<M\>\"", ",", "Italic"}], "]"}], ",", 
+          RowBox[{"Superscript", "[", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<R\>\"", ",", "Italic"}], "]"}], ",", "2"}], "]"}]}],
+          "}"}], "]"}], ",", "24", ",", "Black", ",", "Bold"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       RowBox[{"-", "1.15"}]}], "}"}]}], "]"}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.441209198162675*^9, 3.441209248980052*^9}, {
+   3.4412095983288603`*^9, 3.4412096063982162`*^9}, {3.4412096551845293`*^9, 
+   3.4412097009657288`*^9}, 3.441209751600235*^9, {3.441209819432197*^9, 
+   3.4412098242853403`*^9}, {3.441209980656802*^9, 3.441209982381555*^9}, {
+   3.441210032048367*^9, 3.441210040229611*^9}, {3.441210161906761*^9, 
+   3.441210165614079*^9}, {3.441210203912787*^9, 3.441210232558311*^9}, {
+   3.441210342154208*^9, 3.441210698503373*^9}, {3.441210764410976*^9, 
+   3.441210815432543*^9}, {3.441210859235736*^9, 3.4412108794966288`*^9}, {
+   3.4412109399714622`*^9, 3.441210949627626*^9}, {3.441211012273943*^9, 
+   3.441211050177025*^9}, {3.441211135485375*^9, 3.441211229401738*^9}, {
+   3.4412112776766787`*^9, 3.4412112941101007`*^9}, {3.44121138008495*^9, 
+   3.441211408380419*^9}, {3.441211582897771*^9, 3.44121161210257*^9}, {
+   3.441211663560704*^9, 3.441211672447694*^9}, {3.441211760857373*^9, 
+   3.441211763300932*^9}, {3.441211858763489*^9, 3.441212029272724*^9}, {
+   3.441212081825993*^9, 3.441212082103489*^9}, {3.44121239890171*^9, 
+   3.4412124231831303`*^9}, {3.441212695263348*^9, 3.441212730574135*^9}, {
+   3.4412128790731*^9, 3.441212914430593*^9}, {3.441213615570743*^9, 
+   3.441213621479253*^9}, {3.441213664385783*^9, 3.441213670767157*^9}},
+ CellID->425921829],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"j", "[", "0", "]"}], "=", "\"\<s\>\""}], ";", 
+  RowBox[{
+   RowBox[{"j", "[", "1", "]"}], "=", "\"\<p\>\""}], ";", 
+  RowBox[{
+   RowBox[{"j", "[", "2", "]"}], "=", "\"\<d\>\""}], ";", 
+  RowBox[{
+   RowBox[{"j", "[", "3", "]"}], "=", "\"\<f\>\""}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.441212133603039*^9, 3.441212357150441*^9}, {
+   3.4412127873244553`*^9, 3.441212827097023*^9}},
+ CellID->145981728],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Alpha]", "[", "1", "]"}], "=", 
+   RowBox[{
+    RowBox[{"\[Alpha]", "[", "4", "]"}], "=", 
+    RowBox[{
+     RowBox[{"\[Alpha]", "[", "7", "]"}], "=", 
+     RowBox[{
+      RowBox[{"\[Alpha]", "[", "10", "]"}], "=", 
+      RowBox[{
+       RowBox[{"\[Alpha]", "[", "12", "]"}], "=", 
+       RowBox[{
+        RowBox[{"\[Alpha]", "[", "13", "]"}], "=", 
+        RowBox[{
+         RowBox[{"\[Alpha]", "[", "14", "]"}], "=", "\"\<1\>\""}]}]}]}]}]}]}],
+   ";", 
+  RowBox[{
+   RowBox[{"\[Alpha]", "[", "2", "]"}], "=", 
+   RowBox[{
+    RowBox[{"\[Alpha]", "[", "5", "]"}], "=", 
+    RowBox[{
+     RowBox[{"\[Alpha]", "[", "8", "]"}], "=", 
+     RowBox[{
+      RowBox[{"\[Alpha]", "[", "11", "]"}], "=", "\"\<2\>\""}]}]}]}], ";", 
+  RowBox[{
+   RowBox[{"\[Alpha]", "[", "3", "]"}], "=", 
+   RowBox[{
+    RowBox[{"\[Alpha]", "[", "6", "]"}], "=", 
+    RowBox[{
+     RowBox[{"\[Alpha]", "[", "9", "]"}], "=", "\"\<3\>\""}]}]}], 
+  ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.4411316588287487`*^9, 3.4411317357560463`*^9}, {
+  3.441131765784156*^9, 3.441131822328333*^9}, {3.4411332885225143`*^9, 
+  3.441133309998605*^9}, {3.4412320001952143`*^9, 3.441232043021633*^9}},
+ CellID->210880503],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"c", "[", "1", "]"}], "=", 
+   RowBox[{
+    RowBox[{"c", "[", "2", "]"}], "=", 
+    RowBox[{
+     RowBox[{"c", "[", "3", "]"}], "=", "\"\<s\>\""}]}]}], ";", 
+  RowBox[{
+   RowBox[{"c", "[", "4", "]"}], "=", 
+   RowBox[{
+    RowBox[{"c", "[", "5", "]"}], "=", 
+    RowBox[{
+     RowBox[{"c", "[", "6", "]"}], "=", "\"\<p\>\""}]}]}], ";", 
+  RowBox[{
+   RowBox[{"c", "[", "7", "]"}], "=", 
+   RowBox[{
+    RowBox[{"c", "[", "8", "]"}], "=", 
+    RowBox[{
+     RowBox[{"c", "[", "9", "]"}], "=", "\"\<d\>\""}]}]}], ";", 
+  RowBox[{
+   RowBox[{"c", "[", "10", "]"}], "=", 
+   RowBox[{
+    RowBox[{"c", "[", "11", "]"}], "=", "\"\<f\>\""}]}], ";", 
+  RowBox[{
+   RowBox[{"c", "[", "12", "]"}], "=", "\"\<g\>\""}], ";", 
+  RowBox[{
+   RowBox[{"c", "[", "13", "]"}], "=", "\"\<h\>\""}], ";", 
+  RowBox[{
+   RowBox[{"c", "[", "14", "]"}], "=", "\"\<i\>\""}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.4410697397395897`*^9, 3.441069919966167*^9}, {
+   3.441131957070333*^9, 3.441132104670074*^9}, 3.441132639835092*^9, {
+   3.441232073045108*^9, 3.441232106545939*^9}},
+ CellID->298981660],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"x", "[", "1", "]"}], "=", 
+   RowBox[{
+    RowBox[{"x", "[", "2", "]"}], "=", 
+    RowBox[{
+     RowBox[{"x", "[", "3", "]"}], "=", "1"}]}]}], ";", 
+  RowBox[{
+   RowBox[{"x", "[", "4", "]"}], "=", 
+   RowBox[{
+    RowBox[{"x", "[", "5", "]"}], "=", 
+    RowBox[{
+     RowBox[{"x", "[", "6", "]"}], "=", "3"}]}]}], ";", 
+  RowBox[{
+   RowBox[{"x", "[", "7", "]"}], "=", 
+   RowBox[{
+    RowBox[{"x", "[", "8", "]"}], "=", 
+    RowBox[{
+     RowBox[{"x", "[", "9", "]"}], "=", "5"}]}]}], ";", 
+  RowBox[{
+   RowBox[{"x", "[", "10", "]"}], "=", 
+   RowBox[{
+    RowBox[{"x", "[", "11", "]"}], "=", "7"}]}], ";", 
+  RowBox[{
+   RowBox[{"x", "[", "12", "]"}], "=", "9"}], ";", 
+  RowBox[{
+   RowBox[{"x", "[", "13", "]"}], "=", "11"}], ";", 
+  RowBox[{
+   RowBox[{"x", "[", "14", "]"}], "=", "13"}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.441132565585392*^9, 3.44113271811969*^9}, 
+   3.441133079598757*^9, 3.4411332458375683`*^9, {3.4411333488503017`*^9, 
+   3.441133351072564*^9}, {3.441224744256626*^9, 3.441224784890403*^9}, 
+   3.441226377704664*^9, {3.4412317453070583`*^9, 3.4412317821071367`*^9}},
+ CellID->776131466],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"y", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "3.14159", ",", "6.28319", ",", "9.42478", ",", "4.49341", ",", "7.72525",
+      ",", "10.9041", ",", "5.76346", ",", "9.09501", ",", "12.3229", ",", 
+     "6.98793", ",", "10.4171", ",", "8.18256", ",", "9.35581", ",", 
+     "10.5128"}], "}"}]}], ";"}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.441132928162573*^9, 3.4411330305207977`*^9}, 
+   3.441220689088737*^9, {3.4412316825433893`*^9, 3.4412316961798058`*^9}},
+ CellID->66954149],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"levels", "[", 
+   RowBox[{"l_", ",", "n_"}], "]"}], ":=", 
+  RowBox[{"Graphics", "[", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<\!\(\*SqrtBox[\(E\)]\)\>\"", ",", "20", ",", "Italic"}], 
+        "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "1"}], ",", "10"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<l\>\"", ",", "30", ",", "Italic"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"12", ",", 
+         RowBox[{"-", "1"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Text", "[", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{"L", ",", "12"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"2", "L"}], "+", "1"}], ",", "1"}], "}"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"L", ",", "0", ",", "6"}], "}"}]}], "]"}], ",", "Thick", ",", 
+     RowBox[{"Arrowheads", "[", ".06", "]"}], ",", 
+     RowBox[{"Arrow", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "12"}], "}"}]}], "}"}], "]"}], ",", 
+     RowBox[{"Arrow", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"14", ",", "0"}], "}"}]}], "}"}], "]"}], ",", 
+     RowBox[{"Line", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0.4", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"0", ",", "1"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"2", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"0", ",", "1"}], "]"}]}], "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0.4", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"0", ",", "2"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"2", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"0", ",", "2"}], "]"}]}], "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0.4", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"0", ",", "3"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"2", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"0", ",", "3"}], "]"}]}], "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"2.4", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"1", ",", "1"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"4", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"1", ",", "1"}], "]"}]}], "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"2.4", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"1", ",", "2"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"4", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"1", ",", "2"}], "]"}]}], "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"2.4", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"1", ",", "3"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"4", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"1", ",", "3"}], "]"}]}], "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"4.4", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"2", ",", "1"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"6", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"2", ",", "1"}], "]"}]}], "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"4.4", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"2", ",", "2"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"6", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"2", ",", "2"}], "]"}]}], "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"4.4", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"2", ",", "3"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"6", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"2", ",", "3"}], "]"}]}], "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"6.4", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"3", ",", "1"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"8", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"3", ",", "1"}], "]"}]}], "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"6.4", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"3", ",", "2"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"8", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"3", ",", "2"}], "]"}]}], "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"8.4", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"4", ",", "1"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"10", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"4", ",", "1"}], "]"}]}], "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"10.4", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"5", ",", "1"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"12", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"5", ",", "1"}], "]"}]}], "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"12.4", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"6", ",", "1"}], "]"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"14", ",", 
+            RowBox[{"k", "[", 
+             RowBox[{"6", ",", "1"}], "]"}]}], "}"}]}], "}"}]}], "}"}], "]"}],
+      ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Text", "[", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"\[Alpha]", "[", "i", "]"}], " ", 
+            RowBox[{"c", "[", "i", "]"}]}], ",", "18", ",", "Italic"}], "]"}],
+          ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"x", "[", "i", "]"}], ",", 
+           RowBox[{
+            RowBox[{"y", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "+", ".5"}]}], "}"}]}], "]"}], 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "14"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Text", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{
+         RowBox[{"Row", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"Subscript", "[", 
+               RowBox[{"\"\<E\>\"", ",", 
+                RowBox[{"Row", "[", 
+                 RowBox[{"{", 
+                  RowBox[{"n", ",", 
+                   RowBox[{"j", "[", "l", "]"}]}], "}"}], "]"}]}], "]"}], ",",
+               "Italic"}], "]"}], ",", " ", "\"\< = \>\"", ",", 
+            RowBox[{"NumberForm", "[", 
+             RowBox[{
+              SuperscriptBox[
+               RowBox[{"k", "[", 
+                RowBox[{"l", ",", "n"}], "]"}], "2"], ",", "4"}], "]"}], ",", 
+            "\"\< \>\"", ",", 
+            RowBox[{"Superscript", "[", 
+             RowBox[{"\[HBar]", ",", "2"}], "]"}], ",", "\"\</2\>\"", ",", 
+            RowBox[{"Style", "[", 
+             RowBox[{"\"\<M\>\"", ",", "Italic"}], "]"}], ",", 
+            RowBox[{"Superscript", "[", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<R\>\"", ",", "Italic"}], "]"}], ",", "2"}], 
+             "]"}]}], "}"}], "]"}], ",", "20", ",", "Red", ",", "Bold"}], 
+        "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"9", ",", "3"}], "}"}]}], "]"}], ",", 
+     RowBox[{"Opacity", "[", ".4", "]"}], ",", "Red", ",", 
+     RowBox[{"Rectangle", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"2", "l"}], "+", ".4"}], ",", 
+         RowBox[{
+          RowBox[{"k", "[", 
+           RowBox[{"l", ",", "n"}], "]"}], "-", ".1"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"2", "l"}], "+", "2"}], ",", 
+         RowBox[{
+          RowBox[{"k", "[", 
+           RowBox[{"l", ",", "n"}], "]"}], "+", "1"}]}], "}"}]}], "]"}]}], 
+    "}"}], "]"}]}]], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.441066804113077*^9, 3.44106680880333*^9}, {
+   3.4410668964524717`*^9, 3.441066984628716*^9}, {3.441067088731536*^9, 
+   3.441067124080246*^9}, {3.4410671606565533`*^9, 3.441067183606018*^9}, {
+   3.441067216032303*^9, 3.441067251920726*^9}, {3.4410673048076572`*^9, 
+   3.441067552058445*^9}, {3.441067582947616*^9, 3.44106758367078*^9}, {
+   3.441067662847073*^9, 3.441067783271976*^9}, {3.441067866949031*^9, 
+   3.4410679051872272`*^9}, {3.441067943500703*^9, 3.441068145603228*^9}, {
+   3.441068184192361*^9, 3.441068277251766*^9}, {3.441068331530367*^9, 
+   3.441068458920033*^9}, {3.441068623172167*^9, 3.441068639058011*^9}, {
+   3.4410686893104467`*^9, 3.441068712309643*^9}, {3.441068765985056*^9, 
+   3.441068784359888*^9}, {3.441068881523299*^9, 3.441068974250002*^9}, 
+   3.441069029201391*^9, {3.441069214365041*^9, 3.441069256426744*^9}, {
+   3.441069290790637*^9, 3.441069400412698*^9}, {3.441069435000806*^9, 
+   3.44106946905284*^9}, {3.441069556779428*^9, 3.4410695863405533`*^9}, {
+   3.4410696466614*^9, 3.441069664972238*^9}, {3.44106993710221*^9, 
+   3.44106996902914*^9}, {3.441070080325347*^9, 3.441070182567628*^9}, {
+   3.4410702737511*^9, 3.441070276081526*^9}, {3.4410710786944304`*^9, 
+   3.44107120040448*^9}, {3.441131833826226*^9, 3.4411318564017878`*^9}, {
+   3.441133044850993*^9, 3.44113306054909*^9}, {3.4411333894184427`*^9, 
+   3.4411334106589813`*^9}, {3.441133497641695*^9, 3.441133523200279*^9}, {
+   3.441133572238862*^9, 3.441133574113036*^9}, 3.441133694847475*^9, {
+   3.4411337786092567`*^9, 3.4411338207962637`*^9}, 3.4411338674255953`*^9, {
+   3.441133940138852*^9, 3.4411340311877203`*^9}, {3.441134071040062*^9, 
+   3.441134097345495*^9}, {3.441220699496069*^9, 3.44122074049621*^9}, 
+   3.441224399993477*^9, {3.441224446060925*^9, 3.4412247189722033`*^9}, {
+   3.4412248351722517`*^9, 3.441224861421987*^9}, {3.4412249874114323`*^9, 
+   3.441225009635371*^9}, {3.441225117416895*^9, 3.441225132598239*^9}, {
+   3.441225174674265*^9, 3.441225280441799*^9}, 3.441225323487179*^9, {
+   3.441225371461783*^9, 3.4412253756372557`*^9}, {3.4412260119424458`*^9, 
+   3.441226021090433*^9}, {3.441226065318541*^9, 3.441226090703164*^9}, 
+   3.441226429082425*^9, {3.441226689833514*^9, 3.441226725950809*^9}, {
+   3.441226760160522*^9, 3.441226762728595*^9}, {3.441226821086025*^9, 
+   3.4412268261978617`*^9}, {3.441226871440209*^9, 3.441226897291808*^9}, 
+   3.441226934250992*^9, {3.441226966501101*^9, 3.4412269934149427`*^9}, 
+   3.441227039904648*^9, {3.441227079328854*^9, 3.441227087233971*^9}, {
+   3.4412271382182198`*^9, 3.4412271971053247`*^9}, 3.441227233383049*^9, {
+   3.441227287988037*^9, 3.441227305331555*^9}, {3.4412273422540894`*^9, 
+   3.44122736949261*^9}, 3.441227433174718*^9, {3.441227642525407*^9, 
+   3.4412278232267113`*^9}, {3.441227854753574*^9, 3.441227855165986*^9}, {
+   3.441227895835644*^9, 3.4412279004336367`*^9}, {3.4412281299515257`*^9, 
+   3.4412281681904793`*^9}, {3.441228200679618*^9, 3.441228225754747*^9}, 
+   3.441231707504778*^9, {3.441231868878311*^9, 3.441231893755701*^9}},
+ CellID->428650063]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"q", "==", "1"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Show", "[", 
+      RowBox[{
+       RowBox[{"g1", "[", 
+        RowBox[{"l", ",", "n", ",", "m"}], "]"}], ",", 
+       RowBox[{"g2", "[", 
+        RowBox[{"l", ",", "n", ",", "m"}], "]"}], ",", "g0", ",", 
+       RowBox[{"label", "[", 
+        RowBox[{"l", ",", "n", ",", "m"}], "]"}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", "1.2"}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"400", ",", "400"}], "}"}]}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Pane", "[", 
+      RowBox[{
+       RowBox[{"levels", "[", 
+        RowBox[{"l", ",", "n"}], "]"}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"400", ",", "400"}], "}"}]}], ",", 
+       RowBox[{"Alignment", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"Center", ",", "Center"}], "}"}]}]}], "]"}]}], 
+    "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"q", ",", "1", ",", "\"\<display\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "\[Rule]", "\"\<wavefunction\>\""}], ",", 
+       RowBox[{"2", "\[Rule]", "\"\<energy levels\>\""}]}], "}"}], ",", 
+     "Setter"}], "}"}], ",", "\[IndentingNewLine]", "Delimiter", ",", 
+   "\[IndentingNewLine]", "\"\<quantum numbers:\>\"", ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n", ",", "1", ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<n\>\"", ",", "Italic"}], "]"}]}], "}"}], ",", 
+     RowBox[{"Range", "[", 
+      RowBox[{"1", ",", "3"}], "]"}], ",", "Setter"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"l", ",", "1", ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<l\>\"", ",", "Italic"}], "]"}]}], "}"}], ",", 
+     RowBox[{"Range", "[", 
+      RowBox[{"0", ",", "2"}], "]"}], ",", "Setter"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", "0", ",", 
+       RowBox[{"Style", "[", 
+        RowBox[{"\"\<m\>\"", ",", "Italic"}], "]"}]}], "}"}], ",", 
+     RowBox[{"Range", "[", 
+      RowBox[{"0", ",", "l"}], "]"}], ",", "Setter"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Left"}], ",", 
+   RowBox[{"TrackedSymbols", "\[RuleDelayed]", 
+    RowBox[{"{", 
+     RowBox[{"q", ",", "n", ",", "l", ",", "m"}], "}"}]}], ",", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}], ",", 
+   RowBox[{"AutorunSequencing", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "2", ",", "3"}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4412065976066513`*^9, 3.441206780549623*^9}, {
+   3.4412068874377832`*^9, 3.441206913282795*^9}, {3.4412074016602917`*^9, 
+   3.441207430892035*^9}, {3.44120748554218*^9, 3.441207538291247*^9}, {
+   3.441207585358622*^9, 3.441207611658483*^9}, {3.44120766542601*^9, 
+   3.441207697485917*^9}, {3.44120778742338*^9, 3.441207804660048*^9}, {
+   3.441209488059617*^9, 3.441209533993979*^9}, 3.441209946187634*^9, {
+   3.441210114292041*^9, 3.441210129665195*^9}, {3.441218318228058*^9, 
+   3.44121832544341*^9}, {3.441219028275551*^9, 3.441219174720495*^9}, {
+   3.441219256393302*^9, 3.4412193723030577`*^9}, {3.4412194158897457`*^9, 
+   3.4412194574440193`*^9}, {3.4412195273966227`*^9, 3.4412195413192043`*^9}, 
+   3.441219572626246*^9, {3.441219618690218*^9, 3.441219625939907*^9}, 
+   3.44121968647369*^9, {3.4412199593865757`*^9, 3.441219998646655*^9}, {
+   3.4412200485365257`*^9, 3.4412200942170963`*^9}, {3.441225416140695*^9, 
+   3.4412254358012943`*^9}, 3.441225502577785*^9, {3.4412255612774067`*^9, 
+   3.441225562987681*^9}, {3.441225611552504*^9, 3.44122570491713*^9}, {
+   3.4412257429044943`*^9, 3.441225771605042*^9}, {3.441226170245768*^9, 
+   3.441226181518264*^9}, {3.4412321698152018`*^9, 3.441232227576544*^9}, {
+   3.441232306615033*^9, 3.441232318046111*^9}, {3.441387721767972*^9, 
+   3.4413878245222464`*^9}, {3.441455187353816*^9, 3.4414551922703075`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`l$$ = 1, $CellContext`m$$ = 
+    0, $CellContext`n$$ = 1, $CellContext`q$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`q$$], 1, "display"}, {
+      1 -> "wavefunction", 2 -> "energy levels"}}, {
+      Hold["quantum numbers:"], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`n$$], 1, 
+       Style["n", Italic]}, {1, 2, 3}}, {{
+       Hold[$CellContext`l$$], 1, 
+       Style["l", Italic]}, {0, 1, 2}}, {{
+       Hold[$CellContext`m$$], 0, 
+       Style["m", Italic]}, 
+      Dynamic[
+       Range[0, $CellContext`l$$]]}}, Typeset`size$$ = {400., {198., 202.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`q$41762$$ = False, $CellContext`n$41763$$ = 
+    0, $CellContext`l$41764$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`l$$ = 1, $CellContext`m$$ = 
+        0, $CellContext`n$$ = 1, $CellContext`q$$ = 1}, "ControllerVariables" :> {
+        Hold[$CellContext`q$$, $CellContext`q$41762$$, False], 
+        Hold[$CellContext`n$$, $CellContext`n$41763$$, 0], 
+        Hold[$CellContext`l$$, $CellContext`l$41764$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> If[$CellContext`q$$ == 1, 
+        Show[
+         $CellContext`g1[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], 
+         $CellContext`g2[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], $CellContext`g0, 
+         $CellContext`label[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], PlotRange -> 1.2, ImageSize -> {400, 400}], 
+        Pane[
+         $CellContext`levels[$CellContext`l$$, $CellContext`n$$], 
+         ImageSize -> {400, 400}, Alignment -> {Center, Center}]], 
+      "Specifications" :> {{{$CellContext`q$$, 1, "display"}, {
+         1 -> "wavefunction", 2 -> "energy levels"}, ControlType -> Setter}, 
+        Delimiter, "quantum numbers:", {{$CellContext`n$$, 1, 
+          Style["n", Italic]}, {1, 2, 3}, ControlType -> 
+         Setter}, {{$CellContext`l$$, 1, 
+          Style["l", Italic]}, {0, 1, 2}, ControlType -> 
+         Setter}, {{$CellContext`m$$, 0, 
+          Style["m", Italic]}, 
+         Dynamic[
+          Range[0, $CellContext`l$$]], ControlType -> Setter}}, 
+      "Options" :> {
+       ControlPlacement -> Left, 
+        TrackedSymbols :> {$CellContext`q$$, $CellContext`n$$, \
+$CellContext`l$$, $CellContext`m$$}, AutorunSequencing -> {1, 2, 3}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{622., {225.34375, 230.65625}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`g1[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := 
+       RegionPlot[$CellContext`\[Psi][$CellContext`l, $CellContext`n, \
+$CellContext`m, $CellContext`z, $CellContext`x] > 
+         0, {$CellContext`z, -1, 1}, {$CellContext`x, -1, 1}, Frame -> None, 
+         PlotStyle -> LightBlue], $CellContext`\[Psi][
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]], 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := 
+       SphericalBesselJ[$CellContext`l, $CellContext`k[$CellContext`l, \
+$CellContext`n] Sqrt[$CellContext`z^2 + $CellContext`x^2]] 
+        Boole[
+         Sqrt[$CellContext`z^2 + $CellContext`x^2] <= 
+          1] $CellContext`Y[$CellContext`l, $CellContext`m, $CellContext`z, \
+$CellContext`x], $CellContext`x[1] = 1, $CellContext`x[2] = 
+       1, $CellContext`x[3] = 1, $CellContext`x[4] = 3, $CellContext`x[5] = 
+       3, $CellContext`x[6] = 3, $CellContext`x[7] = 5, $CellContext`x[8] = 
+       5, $CellContext`x[9] = 5, $CellContext`x[10] = 7, $CellContext`x[11] = 
+       7, $CellContext`x[12] = 9, $CellContext`x[13] = 11, $CellContext`x[14] = 
+       13, $CellContext`k[0, 1] = 3.14159, $CellContext`k[0, 2] = 
+       6.28319, $CellContext`k[0, 3] = 9.42478, $CellContext`k[1, 1] = 
+       4.49341, $CellContext`k[1, 2] = 7.72525, $CellContext`k[1, 3] = 
+       10.9041, $CellContext`k[2, 1] = 5.76346, $CellContext`k[2, 2] = 
+       9.09501, $CellContext`k[2, 3] = 12.3229, $CellContext`k[3, 1] = 
+       6.98793, $CellContext`k[3, 2] = 10.4171, $CellContext`k[4, 1] = 
+       8.18256, $CellContext`k[5, 1] = 9.35581, $CellContext`k[6, 1] = 
+       10.5128, $CellContext`Y[0, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := 1, $CellContext`Y[1, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`z, $CellContext`Y[1, 1, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x, $CellContext`Y[2, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x^2 - 2 $CellContext`z^2, $CellContext`Y[
+        2, 1, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`z $CellContext`x, $CellContext`Y[2, 2, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x^2, $CellContext`g2[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := ContourPlot[
+         $CellContext`\[Psi][$CellContext`l, $CellContext`n, $CellContext`m, \
+$CellContext`z, $CellContext`x], {$CellContext`z, -1, 1}, {$CellContext`x, -1,
+           1}, PlotPoints -> 20, Contours -> 5, Frame -> None, ContourShading -> 
+         None], $CellContext`g0 = Graphics[{
+          Thickness[Large], 
+          Circle[{0, 0}]}], $CellContext`label[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := Graphics[
+         Text[
+          Style[
+           Row[{
+             Subscript["\[Psi]", 
+              Style[
+               Row[{$CellContext`n, $CellContext`l, $CellContext`m}], 
+               Italic]], "(", 
+             Style["r", Italic], ", \[Theta], \[Phi])       ", 
+             Style[
+              Subscript["E", 
+               Row[{$CellContext`n, 
+                 $CellContext`j[$CellContext`l]}]], Italic], " = ", 
+             NumberForm[$CellContext`k[$CellContext`l, $CellContext`n]^2, 4], 
+             " ", 
+             Superscript[$CellContext`\[HBar], 2], "/2", 
+             Style["M", Italic], 
+             Superscript[
+              Style["R", Italic], 2]}], 24, Black, Bold], {0, -1.15}]], 
+       Attributes[Subscript] = {NHoldRest}, Subscript[Notebook$$33`A, 1] = 
+       104.`3., Subscript[Notebook$$33`A, 2] = 104.`3., 
+       Subscript[Notebook$$33`A, 3] = 
+       Sqrt[((8 Sqrt[5] + Sqrt[65] + 
+           Sqrt[145]) ((-8) Sqrt[5] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2) (-
+            Sqrt[65] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2) (-
+            Sqrt[145] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2))/2], 
+       Subscript[Notebook$$33`A, 4] = 
+       Sqrt[((24 + 
+           8 Sqrt[5]) (-16 + (24 + 8 Sqrt[5])/2) (-8 + (24 + 8 Sqrt[5])/
+            2) ((-8) Sqrt[5] + (24 + 8 Sqrt[5])/2))/2], 
+       Subscript[$CellContext`A, 1] = 104.`3., Subscript[$CellContext`A, 2] = 
+       104.`3., Subscript[$CellContext`A, 3] = 
+       Sqrt[((8 Sqrt[5] + Sqrt[65] + 
+           Sqrt[145]) ((-8) Sqrt[5] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2) (-
+            Sqrt[65] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2) (-
+            Sqrt[145] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2))/2], 
+       Subscript[$CellContext`A, 4] = 
+       Sqrt[((24 + 
+           8 Sqrt[5]) (-16 + (24 + 8 Sqrt[5])/2) (-8 + (24 + 8 Sqrt[5])/
+            2) ((-8) Sqrt[5] + (24 + 8 Sqrt[5])/2))/2], 
+       Subscript[Notebook$$33`d, 1] = 8 Sqrt[5], Subscript[Notebook$$33`d, 2] = 
+       Sqrt[145], Subscript[$CellContext`d, 1] = 8 Sqrt[5], 
+       Subscript[$CellContext`d, 2] = Sqrt[145], $CellContext`j[0] = 
+       "s", $CellContext`j[1] = "p", $CellContext`j[2] = 
+       "d", $CellContext`j[3] = "f", 
+       Attributes[Superscript] = {NHoldRest, ReadProtected}, 
+       Attributes[PlotRange] = {ReadProtected}, $CellContext`levels[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]]] := Graphics[{
+          Text[
+           Style["\!\(\*SqrtBox[\(E\)]\)", 20, Italic], {-1, 10}], 
+          Text[
+           Style["l", 30, Italic], {12, -1}], 
+          Table[
+           Text[
+            Style[$CellContext`L, 12], {
+            2 $CellContext`L + 1, 1}], {$CellContext`L, 0, 6}], Thick, 
+          Arrowheads[0.06], 
+          Arrow[{{0, 0}, {0, 12}}], 
+          Arrow[{{0, 0}, {14, 0}}], 
+          Line[{{{0.4, 
+              $CellContext`k[0, 1]}, {2, 
+              $CellContext`k[0, 1]}}, {{0.4, 
+              $CellContext`k[0, 2]}, {2, 
+              $CellContext`k[0, 2]}}, {{0.4, 
+              $CellContext`k[0, 3]}, {2, 
+              $CellContext`k[0, 3]}}, {{2.4, 
+              $CellContext`k[1, 1]}, {4, 
+              $CellContext`k[1, 1]}}, {{2.4, 
+              $CellContext`k[1, 2]}, {4, 
+              $CellContext`k[1, 2]}}, {{2.4, 
+              $CellContext`k[1, 3]}, {4, 
+              $CellContext`k[1, 3]}}, {{4.4, 
+              $CellContext`k[2, 1]}, {6, 
+              $CellContext`k[2, 1]}}, {{4.4, 
+              $CellContext`k[2, 2]}, {6, 
+              $CellContext`k[2, 2]}}, {{4.4, 
+              $CellContext`k[2, 3]}, {6, 
+              $CellContext`k[2, 3]}}, {{6.4, 
+              $CellContext`k[3, 1]}, {8, 
+              $CellContext`k[3, 1]}}, {{6.4, 
+              $CellContext`k[3, 2]}, {8, 
+              $CellContext`k[3, 2]}}, {{8.4, 
+              $CellContext`k[4, 1]}, {10, 
+              $CellContext`k[4, 1]}}, {{10.4, 
+              $CellContext`k[5, 1]}, {12, 
+              $CellContext`k[5, 1]}}, {{12.4, 
+              $CellContext`k[6, 1]}, {14, 
+              $CellContext`k[6, 1]}}}], 
+          Table[
+           Text[
+            
+            Style[$CellContext`\[Alpha][$CellContext`i] \
+$CellContext`c[$CellContext`i], 18, Italic], {
+             $CellContext`x[$CellContext`i], 
+             Part[$CellContext`y, $CellContext`i] + 0.5}], {$CellContext`i, 1,
+             14}], 
+          Text[
+           Style[
+            Row[{
+              Style[
+               Subscript["E", 
+                Row[{$CellContext`n, 
+                  $CellContext`j[$CellContext`l]}]], Italic], " = ", 
+              NumberForm[$CellContext`k[$CellContext`l, $CellContext`n]^2, 4],
+               " ", 
+              Superscript[$CellContext`\[HBar], 2], "/2", 
+              Style["M", Italic], 
+              Superscript[
+               Style["R", Italic], 2]}], 20, Red, Bold], {9, 3}], 
+          Opacity[0.4], Red, 
+          
+          Rectangle[{
+           2 $CellContext`l + 
+            0.4, $CellContext`k[$CellContext`l, $CellContext`n] - 0.1}, {
+           2 $CellContext`l + 
+            2, $CellContext`k[$CellContext`l, $CellContext`n] + 1}]}], 
+       Attributes[Thick] = {ReadProtected}, $CellContext`\[Alpha][1] = 
+       "1", $CellContext`\[Alpha][2] = "2", $CellContext`\[Alpha][3] = 
+       "3", $CellContext`\[Alpha][4] = "1", $CellContext`\[Alpha][5] = 
+       "2", $CellContext`\[Alpha][6] = "3", $CellContext`\[Alpha][7] = 
+       "1", $CellContext`\[Alpha][8] = "2", $CellContext`\[Alpha][9] = 
+       "3", $CellContext`\[Alpha][10] = "1", $CellContext`\[Alpha][11] = 
+       "2", $CellContext`\[Alpha][12] = "1", $CellContext`\[Alpha][13] = 
+       "1", $CellContext`\[Alpha][14] = "1", $CellContext`c[1] = 
+       "s", $CellContext`c[2] = "s", $CellContext`c[3] = 
+       "s", $CellContext`c[4] = "p", $CellContext`c[5] = 
+       "p", $CellContext`c[6] = "p", $CellContext`c[7] = 
+       "d", $CellContext`c[8] = "d", $CellContext`c[9] = 
+       "d", $CellContext`c[10] = "f", $CellContext`c[11] = 
+       "f", $CellContext`c[12] = "g", $CellContext`c[13] = 
+       "h", $CellContext`c[14] = 
+       "i", $CellContext`y = {3.14159, 6.28319, 9.42478, 4.49341, 7.72525, 
+        10.9041, 5.76346, 9.09501, 12.3229, 6.98793, 10.4171, 8.18256, 
+        9.35581, 10.5128}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.35696210375764*^9, 3.4638396763710012`*^9},
+ CellID->701165610]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ManipulateCaptionSection"],
+
+Cell[TextData[{
+ "A particle of mass ",
+ Cell[BoxData[
+  FormBox["M", TraditionalForm]], "InlineMath"],
+ " in an infinite spherical potential well of radius ",
+ Cell[BoxData[
+  FormBox["R", TraditionalForm]], "InlineMath"],
+ " is described by the Schr\[ODoubleDot]dinger equation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox[
+       SuperscriptBox["\[HBar]", "2"], 
+       RowBox[{"2", "M"}]]}], 
+     RowBox[{
+      SuperscriptBox["\[Del]", "2"], "\[Psi]"}]}], "=", 
+    RowBox[{"E", " ", "\[Psi]"}]}], TraditionalForm]], "InlineMath"],
+ ". The wavefunction is separable in spherical polar coordinates, such that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["\[Psi]", 
+      RowBox[{"n", " ", "l", " ", "m"}]], "(", 
+     RowBox[{"r", ",", "\[Theta]", ",", "\[Phi]"}], ")"}], "=", 
+    RowBox[{
+     SubscriptBox["N", 
+      RowBox[{"n", " ", "l", " ", "m"}]], 
+     RowBox[{
+      SubscriptBox["j", "l"], "(", 
+      RowBox[{
+       SubscriptBox["k", 
+        RowBox[{"l", " ", "n"}]], "r"}], ")"}], 
+     RowBox[{
+      SubscriptBox["Y", 
+       RowBox[{"l", " ", "m"}]], "(", 
+      RowBox[{"\[Theta]", ",", "\[Phi]"}], ")"}]}]}], TraditionalForm]], 
+  "InlineMath"],
+ ", where ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["Y", 
+    RowBox[{"l", " ", "m"}]], TraditionalForm]], "InlineMath"],
+ " is a spherical harmonic, ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["j", "l"], TraditionalForm]], "InlineMath"],
+ " a spherical Bessel function, and ",
+ Cell[BoxData[
+  FormBox["N", TraditionalForm]], "InlineMath"],
+ " is a normalization constant. The boundary condition that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Psi]", "=", "0"}], TraditionalForm]], "InlineMath"],
+ " at ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"r", "=", "R"}], TraditionalForm]], "InlineMath"],
+ " is fulfilled when ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["k", 
+     RowBox[{"l", " ", "n"}]], "R"}], TraditionalForm]], "InlineMath"],
+ " is the ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["n", "th"], TraditionalForm]], "InlineMath"],
+ " zero of the spherical Bessel function ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["j", "l"], TraditionalForm]], "InlineMath"],
+ ". The quantized energy levels are then given by ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["E", 
+     RowBox[{"n", " ", "l"}]], "=", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[HBar]", "2"], 
+      SuperscriptBox[
+       SubscriptBox["k", 
+        RowBox[{"l", " ", "n"}]], "2"]}], 
+     RowBox[{"2", "M", " ", 
+      SuperscriptBox["R", "2"]}]]}], TraditionalForm]], "InlineMath"],
+ " and are ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"2", "l"}], "+", "1"}], ")"}], TraditionalForm]], "InlineMath"],
+ "-fold degenerate with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"m", "=", "0"}], ",", 
+    RowBox[{"\[PlusMinus]", "1"}], ",", 
+    RowBox[{"\[PlusMinus]", "2"}], ",", "\[Ellipsis]", ",", 
+    RowBox[{"\[PlusMinus]", "l"}]}], TraditionalForm]], "InlineMath"],
+ ". The conventional code is used to label angular momentum states, with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"s", ",", "p", ",", "d", ",", "f", ",", "\[Ellipsis]"}], 
+   TraditionalForm]], "InlineMath"],
+ " representing ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"l", "=", "0"}], ",", "1", ",", "2", ",", "3", ",", 
+    "\[Ellipsis]"}], TraditionalForm]], "InlineMath"],
+ ". Unlike atomic orbitals, the ",
+ Cell[BoxData[
+  FormBox["l", TraditionalForm]], "InlineMath"],
+ "-values are not limited by ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]], "InlineMath"],
+ "; thus one will encounter states designated ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"1", "p"}], ",", 
+    RowBox[{"1", "d"}], ",", 
+    RowBox[{"2", "f"}]}], TraditionalForm]], "InlineMath"],
+ ", etc."
+}], "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.441232926895714*^9, 3.4412330284818993`*^9}, {
+   3.441233062797131*^9, 3.441233094588866*^9}, {3.441233130064354*^9, 
+   3.441233319044938*^9}, {3.44123336099081*^9, 3.441233405733735*^9}, {
+   3.441233441456294*^9, 3.4412337370967484`*^9}, {3.441233775072397*^9, 
+   3.441233804772192*^9}, {3.441233843584779*^9, 3.441234195811398*^9}, {
+   3.4412342304163427`*^9, 3.4412342325871067`*^9}, {3.441234278079812*^9, 
+   3.4412343717365303`*^9}, 3.441234439338636*^9, {3.441234555774848*^9, 
+   3.441234568846819*^9}, {3.441234604636672*^9, 3.441234626680201*^9}, {
+   3.441234694982992*^9, 3.441234696173326*^9}, {3.4412347284395514`*^9, 
+   3.4412348024389687`*^9}, {3.441234840995007*^9, 3.4412349006112747`*^9}, {
+   3.441234936556284*^9, 3.441234968651231*^9}, {3.441235011759794*^9, 
+   3.441235178988389*^9}, {3.4412352590377903`*^9, 3.441235279463977*^9}, {
+   3.441235367624174*^9, 3.4412353736644917`*^9}, {3.441236393370461*^9, 
+   3.4412363947424994`*^9}, 3.441236433898735*^9, {3.4413912365921216`*^9, 
+   3.4413912393108892`*^9}, {3.4413912768736296`*^9, 
+   3.4413914022025566`*^9}, {3.4413914699529905`*^9, 3.4413914732342615`*^9}}],
+
+Cell[TextData[{
+ "This Demonstration shows contour plots on a cross section of the sphere for \
+the lower-energy eigenfunctions with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"n", "=", "1"}], ",", "2", ",", "3"}], TraditionalForm]], 
+  "InlineMath"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"l", "=", "0"}], ",", "1", ",", "2"}], TraditionalForm]], 
+  "InlineMath"],
+ ". For ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"m", ">", "0"}], TraditionalForm]], "InlineMath"],
+ ", the eigenfunctions are complex. In all cases, the real parts of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Psi]", 
+     RowBox[{"n", " ", "l", " ", "m"}]], "(", 
+    RowBox[{"r", ",", "\[Theta]", ",", "\[Phi]"}], ")"}], TraditionalForm]], 
+  "InlineMath"],
+ " are drawn. The wavefunction is positive in the blue regions and negative \
+in the white regions. You can also view an energy-level diagram, with each \
+dash representing the degenerate set of eigenstates for given ",
+ Cell[BoxData[
+  FormBox["l", TraditionalForm]], "InlineMath"],
+ "."
+}], "ManipulateCaption",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.441235451457345*^9, 3.441235571742939*^9}, {
+   3.441235979254942*^9, 3.4412360042398863`*^9}, {3.4412360362782593`*^9, 
+   3.44123608175289*^9}, {3.4412361619038677`*^9, 3.4412362087163353`*^9}, {
+   3.441236240143259*^9, 3.4412362519673977`*^9}, 3.441236298619955*^9, {
+   3.441236551383484*^9, 3.441236618217626*^9}, {3.441236672095347*^9, 
+   3.441236772154516*^9}, {3.44123749929956*^9, 3.441237533432028*^9}, {
+   3.4413914859843426`*^9, 3.441391531344008*^9}, {3.4413937623049607`*^9, 
+   3.441393762427973*^9}},
+ CellID->87496799]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ThumbnailSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`l$$ = 2, $CellContext`m$$ = 
+    2, $CellContext`n$$ = 3, $CellContext`q$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`q$$], 1, "display"}, {
+      1 -> "wavefunction", 2 -> "energy levels"}}, {
+      Hold["quantum numbers:"], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`n$$], 3, 
+       Style["n", Italic]}, {1, 2, 3}}, {{
+       Hold[$CellContext`l$$], 2, 
+       Style["l", Italic]}, {0, 1, 2}}, {{
+       Hold[$CellContext`m$$], 2, 
+       Style["m", Italic]}, 
+      Dynamic[
+       Range[0, $CellContext`l$$]]}}, Typeset`size$$ = {400., {198., 202.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`q$41088$$ = False, $CellContext`n$41089$$ = 
+    0, $CellContext`l$41090$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`l$$ = 2, $CellContext`m$$ = 
+        2, $CellContext`n$$ = 3, $CellContext`q$$ = 1}, "ControllerVariables" :> {
+        Hold[$CellContext`q$$, $CellContext`q$41088$$, False], 
+        Hold[$CellContext`n$$, $CellContext`n$41089$$, 0], 
+        Hold[$CellContext`l$$, $CellContext`l$41090$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> If[$CellContext`q$$ == 1, 
+        Show[
+         $CellContext`g1[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], 
+         $CellContext`g2[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], $CellContext`g0, 
+         $CellContext`label[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], PlotRange -> 1.2, ImageSize -> {400, 400}], 
+        Pane[
+         $CellContext`levels[$CellContext`l$$, $CellContext`n$$], 
+         ImageSize -> {400, 400}, Alignment -> {Center, Center}]], 
+      "Specifications" :> {{{$CellContext`q$$, 1, "display"}, {
+         1 -> "wavefunction", 2 -> "energy levels"}, ControlType -> Setter}, 
+        Delimiter, "quantum numbers:", {{$CellContext`n$$, 3, 
+          Style["n", Italic]}, {1, 2, 3}, ControlType -> 
+         Setter}, {{$CellContext`l$$, 2, 
+          Style["l", Italic]}, {0, 1, 2}, ControlType -> 
+         Setter}, {{$CellContext`m$$, 2, 
+          Style["m", Italic]}, 
+         Dynamic[
+          Range[0, $CellContext`l$$]], ControlType -> Setter}}, 
+      "Options" :> {
+       ControlPlacement -> Left, 
+        TrackedSymbols :> {$CellContext`q$$, $CellContext`n$$, \
+$CellContext`l$$, $CellContext`m$$}, AutorunSequencing -> {1, 2, 3}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{622., {225.34375, 230.65625}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`g1[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := 
+       RegionPlot[$CellContext`\[Psi][$CellContext`l, $CellContext`n, \
+$CellContext`m, $CellContext`z, $CellContext`x] > 
+         0, {$CellContext`z, -1, 1}, {$CellContext`x, -1, 1}, Frame -> None, 
+         PlotStyle -> LightBlue], $CellContext`\[Psi][
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]], 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := 
+       SphericalBesselJ[$CellContext`l, $CellContext`k[$CellContext`l, \
+$CellContext`n] Sqrt[$CellContext`z^2 + $CellContext`x^2]] 
+        Boole[
+         Sqrt[$CellContext`z^2 + $CellContext`x^2] <= 
+          1] $CellContext`Y[$CellContext`l, $CellContext`m, $CellContext`z, \
+$CellContext`x], $CellContext`x[1] = 1, $CellContext`x[2] = 
+       1, $CellContext`x[3] = 1, $CellContext`x[4] = 3, $CellContext`x[5] = 
+       3, $CellContext`x[6] = 3, $CellContext`x[7] = 5, $CellContext`x[8] = 
+       5, $CellContext`x[9] = 5, $CellContext`x[10] = 7, $CellContext`x[11] = 
+       7, $CellContext`x[12] = 9, $CellContext`x[13] = 11, $CellContext`x[14] = 
+       13, $CellContext`k[0, 1] = 3.14159, $CellContext`k[0, 2] = 
+       6.28319, $CellContext`k[0, 3] = 9.42478, $CellContext`k[1, 1] = 
+       4.49341, $CellContext`k[1, 2] = 7.72525, $CellContext`k[1, 3] = 
+       10.9041, $CellContext`k[2, 1] = 5.76346, $CellContext`k[2, 2] = 
+       9.09501, $CellContext`k[2, 3] = 12.3229, $CellContext`k[3, 1] = 
+       6.98793, $CellContext`k[3, 2] = 10.4171, $CellContext`k[4, 1] = 
+       8.18256, $CellContext`k[5, 1] = 9.35581, $CellContext`k[6, 1] = 
+       10.5128, $CellContext`Y[0, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := 1, $CellContext`Y[1, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`z, $CellContext`Y[1, 1, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x, $CellContext`Y[2, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x^2 - 2 $CellContext`z^2, $CellContext`Y[
+        2, 1, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`z $CellContext`x, $CellContext`Y[2, 2, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x^2, $CellContext`g2[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := ContourPlot[
+         $CellContext`\[Psi][$CellContext`l, $CellContext`n, $CellContext`m, \
+$CellContext`z, $CellContext`x], {$CellContext`z, -1, 1}, {$CellContext`x, -1,
+           1}, PlotPoints -> 20, Contours -> 5, Frame -> None, ContourShading -> 
+         None], $CellContext`g0 = Graphics[{
+          Thickness[Large], 
+          Circle[{0, 0}]}], $CellContext`label[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := Graphics[
+         Text[
+          Style[
+           Row[{
+             Subscript["\[Psi]", 
+              Style[
+               Row[{$CellContext`n, $CellContext`l, $CellContext`m}], 
+               Italic]], "(", 
+             Style["r", Italic], ", \[Theta], \[Phi])       ", 
+             Style[
+              Subscript["E", 
+               Row[{$CellContext`n, 
+                 $CellContext`j[$CellContext`l]}]], Italic], " = ", 
+             NumberForm[$CellContext`k[$CellContext`l, $CellContext`n]^2, 4], 
+             " ", 
+             Superscript[$CellContext`\[HBar], 2], "/2", 
+             Style["M", Italic], 
+             Superscript[
+              Style["R", Italic], 2]}], 24, Black, Bold], {0, -1.15}]], 
+       Attributes[Subscript] = {NHoldRest}, Subscript[$CellContext`A, 1] = 
+       104.`3., Subscript[$CellContext`A, 2] = 104.`3., 
+       Subscript[$CellContext`A, 3] = 
+       Sqrt[((8 Sqrt[5] + Sqrt[65] + 
+           Sqrt[145]) ((-8) Sqrt[5] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2) (-
+            Sqrt[65] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2) (-
+            Sqrt[145] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2))/2], 
+       Subscript[$CellContext`A, 4] = 
+       Sqrt[((24 + 
+           8 Sqrt[5]) (-16 + (24 + 8 Sqrt[5])/2) (-8 + (24 + 8 Sqrt[5])/
+            2) ((-8) Sqrt[5] + (24 + 8 Sqrt[5])/2))/2], 
+       Subscript[$CellContext`d, 1] = 8 Sqrt[5], Subscript[$CellContext`d, 2] = 
+       Sqrt[145], $CellContext`j[0] = "s", $CellContext`j[1] = 
+       "p", $CellContext`j[2] = "d", $CellContext`j[3] = "f", 
+       Attributes[Superscript] = {NHoldRest, ReadProtected}, 
+       Attributes[PlotRange] = {ReadProtected}, $CellContext`levels[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]]] := Graphics[{
+          Text[
+           Style["\!\(\*SqrtBox[\(E\)]\)", 20, Italic], {-1, 10}], 
+          Text[
+           Style["l", 30, Italic], {12, -1}], 
+          Table[
+           Text[
+            Style[$CellContext`L, 12], {
+            2 $CellContext`L + 1, 1}], {$CellContext`L, 0, 6}], Thick, 
+          Arrowheads[0.06], 
+          Arrow[{{0, 0}, {0, 12}}], 
+          Arrow[{{0, 0}, {14, 0}}], 
+          Line[{{{0.4, 
+              $CellContext`k[0, 1]}, {2, 
+              $CellContext`k[0, 1]}}, {{0.4, 
+              $CellContext`k[0, 2]}, {2, 
+              $CellContext`k[0, 2]}}, {{0.4, 
+              $CellContext`k[0, 3]}, {2, 
+              $CellContext`k[0, 3]}}, {{2.4, 
+              $CellContext`k[1, 1]}, {4, 
+              $CellContext`k[1, 1]}}, {{2.4, 
+              $CellContext`k[1, 2]}, {4, 
+              $CellContext`k[1, 2]}}, {{2.4, 
+              $CellContext`k[1, 3]}, {4, 
+              $CellContext`k[1, 3]}}, {{4.4, 
+              $CellContext`k[2, 1]}, {6, 
+              $CellContext`k[2, 1]}}, {{4.4, 
+              $CellContext`k[2, 2]}, {6, 
+              $CellContext`k[2, 2]}}, {{4.4, 
+              $CellContext`k[2, 3]}, {6, 
+              $CellContext`k[2, 3]}}, {{6.4, 
+              $CellContext`k[3, 1]}, {8, 
+              $CellContext`k[3, 1]}}, {{6.4, 
+              $CellContext`k[3, 2]}, {8, 
+              $CellContext`k[3, 2]}}, {{8.4, 
+              $CellContext`k[4, 1]}, {10, 
+              $CellContext`k[4, 1]}}, {{10.4, 
+              $CellContext`k[5, 1]}, {12, 
+              $CellContext`k[5, 1]}}, {{12.4, 
+              $CellContext`k[6, 1]}, {14, 
+              $CellContext`k[6, 1]}}}], 
+          Table[
+           Text[
+            
+            Style[$CellContext`\[Alpha][$CellContext`i] \
+$CellContext`c[$CellContext`i], 18, Italic], {
+             $CellContext`x[$CellContext`i], 
+             Part[$CellContext`y, $CellContext`i] + 0.5}], {$CellContext`i, 1,
+             14}], 
+          Text[
+           Style[
+            Row[{
+              Style[
+               Subscript["E", 
+                Row[{$CellContext`n, 
+                  $CellContext`j[$CellContext`l]}]], Italic], " = ", 
+              NumberForm[$CellContext`k[$CellContext`l, $CellContext`n]^2, 4],
+               " ", 
+              Superscript[$CellContext`\[HBar], 2], "/2", 
+              Style["M", Italic], 
+              Superscript[
+               Style["R", Italic], 2]}], 20, Red, Bold], {9, 3}], 
+          Opacity[0.4], Red, 
+          
+          Rectangle[{
+           2 $CellContext`l + 
+            0.4, $CellContext`k[$CellContext`l, $CellContext`n] - 0.1}, {
+           2 $CellContext`l + 
+            2, $CellContext`k[$CellContext`l, $CellContext`n] + 1}]}], 
+       Attributes[Thick] = {ReadProtected}, $CellContext`\[Alpha][1] = 
+       "1", $CellContext`\[Alpha][2] = "2", $CellContext`\[Alpha][3] = 
+       "3", $CellContext`\[Alpha][4] = "1", $CellContext`\[Alpha][5] = 
+       "2", $CellContext`\[Alpha][6] = "3", $CellContext`\[Alpha][7] = 
+       "1", $CellContext`\[Alpha][8] = "2", $CellContext`\[Alpha][9] = 
+       "3", $CellContext`\[Alpha][10] = "1", $CellContext`\[Alpha][11] = 
+       "2", $CellContext`\[Alpha][12] = "1", $CellContext`\[Alpha][13] = 
+       "1", $CellContext`\[Alpha][14] = "1", $CellContext`c[1] = 
+       "s", $CellContext`c[2] = "s", $CellContext`c[3] = 
+       "s", $CellContext`c[4] = "p", $CellContext`c[5] = 
+       "p", $CellContext`c[6] = "p", $CellContext`c[7] = 
+       "d", $CellContext`c[8] = "d", $CellContext`c[9] = 
+       "d", $CellContext`c[10] = "f", $CellContext`c[11] = 
+       "f", $CellContext`c[12] = "g", $CellContext`c[13] = 
+       "h", $CellContext`c[14] = 
+       "i", $CellContext`y = {3.14159, 6.28319, 9.42478, 4.49341, 7.72525, 
+        10.9041, 5.76346, 9.09501, 12.3229, 6.98793, 10.4171, 8.18256, 
+        9.35581, 10.5128}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->1483065164]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SnapshotsSection"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`l$$ = 0, $CellContext`m$$ = 
+    0, $CellContext`n$$ = 1, $CellContext`q$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`q$$], 1, "display"}, {
+      1 -> "wavefunction", 2 -> "energy levels"}}, {
+      Hold["quantum numbers:"], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`n$$], 1, 
+       Style["n", Italic]}, {1, 2, 3}}, {{
+       Hold[$CellContext`l$$], 0, 
+       Style["l", Italic]}, {0, 1, 2}}, {{
+       Hold[$CellContext`m$$], 0, 
+       Style["m", Italic]}, 
+      Dynamic[
+       Range[0, $CellContext`l$$]]}}, Typeset`size$$ = {400., {198., 202.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`q$41154$$ = False, $CellContext`n$41155$$ = 
+    0, $CellContext`l$41156$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`l$$ = 0, $CellContext`m$$ = 
+        0, $CellContext`n$$ = 1, $CellContext`q$$ = 1}, "ControllerVariables" :> {
+        Hold[$CellContext`q$$, $CellContext`q$41154$$, False], 
+        Hold[$CellContext`n$$, $CellContext`n$41155$$, 0], 
+        Hold[$CellContext`l$$, $CellContext`l$41156$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> If[$CellContext`q$$ == 1, 
+        Show[
+         $CellContext`g1[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], 
+         $CellContext`g2[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], $CellContext`g0, 
+         $CellContext`label[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], PlotRange -> 1.2, ImageSize -> {400, 400}], 
+        Pane[
+         $CellContext`levels[$CellContext`l$$, $CellContext`n$$], 
+         ImageSize -> {400, 400}, Alignment -> {Center, Center}]], 
+      "Specifications" :> {{{$CellContext`q$$, 1, "display"}, {
+         1 -> "wavefunction", 2 -> "energy levels"}, ControlType -> Setter}, 
+        Delimiter, "quantum numbers:", {{$CellContext`n$$, 1, 
+          Style["n", Italic]}, {1, 2, 3}, ControlType -> 
+         Setter}, {{$CellContext`l$$, 0, 
+          Style["l", Italic]}, {0, 1, 2}, ControlType -> 
+         Setter}, {{$CellContext`m$$, 0, 
+          Style["m", Italic]}, 
+         Dynamic[
+          Range[0, $CellContext`l$$]], ControlType -> Setter}}, 
+      "Options" :> {
+       ControlPlacement -> Left, 
+        TrackedSymbols :> {$CellContext`q$$, $CellContext`n$$, \
+$CellContext`l$$, $CellContext`m$$}, AutorunSequencing -> {1, 2, 3}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{622., {225.34375, 230.65625}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`g1[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := 
+       RegionPlot[$CellContext`\[Psi][$CellContext`l, $CellContext`n, \
+$CellContext`m, $CellContext`z, $CellContext`x] > 
+         0, {$CellContext`z, -1, 1}, {$CellContext`x, -1, 1}, Frame -> None, 
+         PlotStyle -> LightBlue], $CellContext`\[Psi][
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]], 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := 
+       SphericalBesselJ[$CellContext`l, $CellContext`k[$CellContext`l, \
+$CellContext`n] Sqrt[$CellContext`z^2 + $CellContext`x^2]] 
+        Boole[
+         Sqrt[$CellContext`z^2 + $CellContext`x^2] <= 
+          1] $CellContext`Y[$CellContext`l, $CellContext`m, $CellContext`z, \
+$CellContext`x], $CellContext`x[1] = 1, $CellContext`x[2] = 
+       1, $CellContext`x[3] = 1, $CellContext`x[4] = 3, $CellContext`x[5] = 
+       3, $CellContext`x[6] = 3, $CellContext`x[7] = 5, $CellContext`x[8] = 
+       5, $CellContext`x[9] = 5, $CellContext`x[10] = 7, $CellContext`x[11] = 
+       7, $CellContext`x[12] = 9, $CellContext`x[13] = 11, $CellContext`x[14] = 
+       13, $CellContext`k[0, 1] = 3.14159, $CellContext`k[0, 2] = 
+       6.28319, $CellContext`k[0, 3] = 9.42478, $CellContext`k[1, 1] = 
+       4.49341, $CellContext`k[1, 2] = 7.72525, $CellContext`k[1, 3] = 
+       10.9041, $CellContext`k[2, 1] = 5.76346, $CellContext`k[2, 2] = 
+       9.09501, $CellContext`k[2, 3] = 12.3229, $CellContext`k[3, 1] = 
+       6.98793, $CellContext`k[3, 2] = 10.4171, $CellContext`k[4, 1] = 
+       8.18256, $CellContext`k[5, 1] = 9.35581, $CellContext`k[6, 1] = 
+       10.5128, $CellContext`Y[0, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := 1, $CellContext`Y[1, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`z, $CellContext`Y[1, 1, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x, $CellContext`Y[2, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x^2 - 2 $CellContext`z^2, $CellContext`Y[
+        2, 1, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`z $CellContext`x, $CellContext`Y[2, 2, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x^2, $CellContext`g2[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := ContourPlot[
+         $CellContext`\[Psi][$CellContext`l, $CellContext`n, $CellContext`m, \
+$CellContext`z, $CellContext`x], {$CellContext`z, -1, 1}, {$CellContext`x, -1,
+           1}, PlotPoints -> 20, Contours -> 5, Frame -> None, ContourShading -> 
+         None], $CellContext`g0 = Graphics[{
+          Thickness[Large], 
+          Circle[{0, 0}]}], $CellContext`label[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := Graphics[
+         Text[
+          Style[
+           Row[{
+             Subscript["\[Psi]", 
+              Style[
+               Row[{$CellContext`n, $CellContext`l, $CellContext`m}], 
+               Italic]], "(", 
+             Style["r", Italic], ", \[Theta], \[Phi])       ", 
+             Style[
+              Subscript["E", 
+               Row[{$CellContext`n, 
+                 $CellContext`j[$CellContext`l]}]], Italic], " = ", 
+             NumberForm[$CellContext`k[$CellContext`l, $CellContext`n]^2, 4], 
+             " ", 
+             Superscript[$CellContext`\[HBar], 2], "/2", 
+             Style["M", Italic], 
+             Superscript[
+              Style["R", Italic], 2]}], 24, Black, Bold], {0, -1.15}]], 
+       Attributes[Subscript] = {NHoldRest}, Subscript[$CellContext`A, 1] = 
+       104.`3., Subscript[$CellContext`A, 2] = 104.`3., 
+       Subscript[$CellContext`A, 3] = 
+       Sqrt[((8 Sqrt[5] + Sqrt[65] + 
+           Sqrt[145]) ((-8) Sqrt[5] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2) (-
+            Sqrt[65] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2) (-
+            Sqrt[145] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2))/2], 
+       Subscript[$CellContext`A, 4] = 
+       Sqrt[((24 + 
+           8 Sqrt[5]) (-16 + (24 + 8 Sqrt[5])/2) (-8 + (24 + 8 Sqrt[5])/
+            2) ((-8) Sqrt[5] + (24 + 8 Sqrt[5])/2))/2], 
+       Subscript[$CellContext`d, 1] = 8 Sqrt[5], Subscript[$CellContext`d, 2] = 
+       Sqrt[145], $CellContext`j[0] = "s", $CellContext`j[1] = 
+       "p", $CellContext`j[2] = "d", $CellContext`j[3] = "f", 
+       Attributes[Superscript] = {NHoldRest, ReadProtected}, 
+       Attributes[PlotRange] = {ReadProtected}, $CellContext`levels[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]]] := Graphics[{
+          Text[
+           Style["\!\(\*SqrtBox[\(E\)]\)", 20, Italic], {-1, 10}], 
+          Text[
+           Style["l", 30, Italic], {12, -1}], 
+          Table[
+           Text[
+            Style[$CellContext`L, 12], {
+            2 $CellContext`L + 1, 1}], {$CellContext`L, 0, 6}], Thick, 
+          Arrowheads[0.06], 
+          Arrow[{{0, 0}, {0, 12}}], 
+          Arrow[{{0, 0}, {14, 0}}], 
+          Line[{{{0.4, 
+              $CellContext`k[0, 1]}, {2, 
+              $CellContext`k[0, 1]}}, {{0.4, 
+              $CellContext`k[0, 2]}, {2, 
+              $CellContext`k[0, 2]}}, {{0.4, 
+              $CellContext`k[0, 3]}, {2, 
+              $CellContext`k[0, 3]}}, {{2.4, 
+              $CellContext`k[1, 1]}, {4, 
+              $CellContext`k[1, 1]}}, {{2.4, 
+              $CellContext`k[1, 2]}, {4, 
+              $CellContext`k[1, 2]}}, {{2.4, 
+              $CellContext`k[1, 3]}, {4, 
+              $CellContext`k[1, 3]}}, {{4.4, 
+              $CellContext`k[2, 1]}, {6, 
+              $CellContext`k[2, 1]}}, {{4.4, 
+              $CellContext`k[2, 2]}, {6, 
+              $CellContext`k[2, 2]}}, {{4.4, 
+              $CellContext`k[2, 3]}, {6, 
+              $CellContext`k[2, 3]}}, {{6.4, 
+              $CellContext`k[3, 1]}, {8, 
+              $CellContext`k[3, 1]}}, {{6.4, 
+              $CellContext`k[3, 2]}, {8, 
+              $CellContext`k[3, 2]}}, {{8.4, 
+              $CellContext`k[4, 1]}, {10, 
+              $CellContext`k[4, 1]}}, {{10.4, 
+              $CellContext`k[5, 1]}, {12, 
+              $CellContext`k[5, 1]}}, {{12.4, 
+              $CellContext`k[6, 1]}, {14, 
+              $CellContext`k[6, 1]}}}], 
+          Table[
+           Text[
+            
+            Style[$CellContext`\[Alpha][$CellContext`i] \
+$CellContext`c[$CellContext`i], 18, Italic], {
+             $CellContext`x[$CellContext`i], 
+             Part[$CellContext`y, $CellContext`i] + 0.5}], {$CellContext`i, 1,
+             14}], 
+          Text[
+           Style[
+            Row[{
+              Style[
+               Subscript["E", 
+                Row[{$CellContext`n, 
+                  $CellContext`j[$CellContext`l]}]], Italic], " = ", 
+              NumberForm[$CellContext`k[$CellContext`l, $CellContext`n]^2, 4],
+               " ", 
+              Superscript[$CellContext`\[HBar], 2], "/2", 
+              Style["M", Italic], 
+              Superscript[
+               Style["R", Italic], 2]}], 20, Red, Bold], {9, 3}], 
+          Opacity[0.4], Red, 
+          
+          Rectangle[{
+           2 $CellContext`l + 
+            0.4, $CellContext`k[$CellContext`l, $CellContext`n] - 0.1}, {
+           2 $CellContext`l + 
+            2, $CellContext`k[$CellContext`l, $CellContext`n] + 1}]}], 
+       Attributes[Thick] = {ReadProtected}, $CellContext`\[Alpha][1] = 
+       "1", $CellContext`\[Alpha][2] = "2", $CellContext`\[Alpha][3] = 
+       "3", $CellContext`\[Alpha][4] = "1", $CellContext`\[Alpha][5] = 
+       "2", $CellContext`\[Alpha][6] = "3", $CellContext`\[Alpha][7] = 
+       "1", $CellContext`\[Alpha][8] = "2", $CellContext`\[Alpha][9] = 
+       "3", $CellContext`\[Alpha][10] = "1", $CellContext`\[Alpha][11] = 
+       "2", $CellContext`\[Alpha][12] = "1", $CellContext`\[Alpha][13] = 
+       "1", $CellContext`\[Alpha][14] = "1", $CellContext`c[1] = 
+       "s", $CellContext`c[2] = "s", $CellContext`c[3] = 
+       "s", $CellContext`c[4] = "p", $CellContext`c[5] = 
+       "p", $CellContext`c[6] = "p", $CellContext`c[7] = 
+       "d", $CellContext`c[8] = "d", $CellContext`c[9] = 
+       "d", $CellContext`c[10] = "f", $CellContext`c[11] = 
+       "f", $CellContext`c[12] = "g", $CellContext`c[13] = 
+       "h", $CellContext`c[14] = 
+       "i", $CellContext`y = {3.14159, 6.28319, 9.42478, 4.49341, 7.72525, 
+        10.9041, 5.76346, 9.09501, 12.3229, 6.98793, 10.4171, 8.18256, 
+        9.35581, 10.5128}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->33520619],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`l$$ = 1, $CellContext`m$$ = 
+    0, $CellContext`n$$ = 1, $CellContext`q$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`q$$], 1, "display"}, {
+      1 -> "wavefunction", 2 -> "energy levels"}}, {
+      Hold["quantum numbers:"], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`n$$], 1, 
+       Style["n", Italic]}, {1, 2, 3}}, {{
+       Hold[$CellContext`l$$], 1, 
+       Style["l", Italic]}, {0, 1, 2}}, {{
+       Hold[$CellContext`m$$], 0, 
+       Style["m", Italic]}, 
+      Dynamic[
+       Range[0, $CellContext`l$$]]}}, Typeset`size$$ = {400., {198., 202.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`q$41220$$ = False, $CellContext`n$41221$$ = 
+    0, $CellContext`l$41222$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`l$$ = 1, $CellContext`m$$ = 
+        0, $CellContext`n$$ = 1, $CellContext`q$$ = 1}, "ControllerVariables" :> {
+        Hold[$CellContext`q$$, $CellContext`q$41220$$, False], 
+        Hold[$CellContext`n$$, $CellContext`n$41221$$, 0], 
+        Hold[$CellContext`l$$, $CellContext`l$41222$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> If[$CellContext`q$$ == 1, 
+        Show[
+         $CellContext`g1[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], 
+         $CellContext`g2[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], $CellContext`g0, 
+         $CellContext`label[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], PlotRange -> 1.2, ImageSize -> {400, 400}], 
+        Pane[
+         $CellContext`levels[$CellContext`l$$, $CellContext`n$$], 
+         ImageSize -> {400, 400}, Alignment -> {Center, Center}]], 
+      "Specifications" :> {{{$CellContext`q$$, 1, "display"}, {
+         1 -> "wavefunction", 2 -> "energy levels"}, ControlType -> Setter}, 
+        Delimiter, "quantum numbers:", {{$CellContext`n$$, 1, 
+          Style["n", Italic]}, {1, 2, 3}, ControlType -> 
+         Setter}, {{$CellContext`l$$, 1, 
+          Style["l", Italic]}, {0, 1, 2}, ControlType -> 
+         Setter}, {{$CellContext`m$$, 0, 
+          Style["m", Italic]}, 
+         Dynamic[
+          Range[0, $CellContext`l$$]], ControlType -> Setter}}, 
+      "Options" :> {
+       ControlPlacement -> Left, 
+        TrackedSymbols :> {$CellContext`q$$, $CellContext`n$$, \
+$CellContext`l$$, $CellContext`m$$}, AutorunSequencing -> {1, 2, 3}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{622., {225.34375, 230.65625}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`g1[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := 
+       RegionPlot[$CellContext`\[Psi][$CellContext`l, $CellContext`n, \
+$CellContext`m, $CellContext`z, $CellContext`x] > 
+         0, {$CellContext`z, -1, 1}, {$CellContext`x, -1, 1}, Frame -> None, 
+         PlotStyle -> LightBlue], $CellContext`\[Psi][
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]], 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := 
+       SphericalBesselJ[$CellContext`l, $CellContext`k[$CellContext`l, \
+$CellContext`n] Sqrt[$CellContext`z^2 + $CellContext`x^2]] 
+        Boole[
+         Sqrt[$CellContext`z^2 + $CellContext`x^2] <= 
+          1] $CellContext`Y[$CellContext`l, $CellContext`m, $CellContext`z, \
+$CellContext`x], $CellContext`x[1] = 1, $CellContext`x[2] = 
+       1, $CellContext`x[3] = 1, $CellContext`x[4] = 3, $CellContext`x[5] = 
+       3, $CellContext`x[6] = 3, $CellContext`x[7] = 5, $CellContext`x[8] = 
+       5, $CellContext`x[9] = 5, $CellContext`x[10] = 7, $CellContext`x[11] = 
+       7, $CellContext`x[12] = 9, $CellContext`x[13] = 11, $CellContext`x[14] = 
+       13, $CellContext`k[0, 1] = 3.14159, $CellContext`k[0, 2] = 
+       6.28319, $CellContext`k[0, 3] = 9.42478, $CellContext`k[1, 1] = 
+       4.49341, $CellContext`k[1, 2] = 7.72525, $CellContext`k[1, 3] = 
+       10.9041, $CellContext`k[2, 1] = 5.76346, $CellContext`k[2, 2] = 
+       9.09501, $CellContext`k[2, 3] = 12.3229, $CellContext`k[3, 1] = 
+       6.98793, $CellContext`k[3, 2] = 10.4171, $CellContext`k[4, 1] = 
+       8.18256, $CellContext`k[5, 1] = 9.35581, $CellContext`k[6, 1] = 
+       10.5128, $CellContext`Y[0, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := 1, $CellContext`Y[1, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`z, $CellContext`Y[1, 1, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x, $CellContext`Y[2, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x^2 - 2 $CellContext`z^2, $CellContext`Y[
+        2, 1, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`z $CellContext`x, $CellContext`Y[2, 2, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x^2, $CellContext`g2[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := ContourPlot[
+         $CellContext`\[Psi][$CellContext`l, $CellContext`n, $CellContext`m, \
+$CellContext`z, $CellContext`x], {$CellContext`z, -1, 1}, {$CellContext`x, -1,
+           1}, PlotPoints -> 20, Contours -> 5, Frame -> None, ContourShading -> 
+         None], $CellContext`g0 = Graphics[{
+          Thickness[Large], 
+          Circle[{0, 0}]}], $CellContext`label[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := Graphics[
+         Text[
+          Style[
+           Row[{
+             Subscript["\[Psi]", 
+              Style[
+               Row[{$CellContext`n, $CellContext`l, $CellContext`m}], 
+               Italic]], "(", 
+             Style["r", Italic], ", \[Theta], \[Phi])       ", 
+             Style[
+              Subscript["E", 
+               Row[{$CellContext`n, 
+                 $CellContext`j[$CellContext`l]}]], Italic], " = ", 
+             NumberForm[$CellContext`k[$CellContext`l, $CellContext`n]^2, 4], 
+             " ", 
+             Superscript[$CellContext`\[HBar], 2], "/2", 
+             Style["M", Italic], 
+             Superscript[
+              Style["R", Italic], 2]}], 24, Black, Bold], {0, -1.15}]], 
+       Attributes[Subscript] = {NHoldRest}, Subscript[$CellContext`A, 1] = 
+       104.`3., Subscript[$CellContext`A, 2] = 104.`3., 
+       Subscript[$CellContext`A, 3] = 
+       Sqrt[((8 Sqrt[5] + Sqrt[65] + 
+           Sqrt[145]) ((-8) Sqrt[5] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2) (-
+            Sqrt[65] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2) (-
+            Sqrt[145] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2))/2], 
+       Subscript[$CellContext`A, 4] = 
+       Sqrt[((24 + 
+           8 Sqrt[5]) (-16 + (24 + 8 Sqrt[5])/2) (-8 + (24 + 8 Sqrt[5])/
+            2) ((-8) Sqrt[5] + (24 + 8 Sqrt[5])/2))/2], 
+       Subscript[$CellContext`d, 1] = 8 Sqrt[5], Subscript[$CellContext`d, 2] = 
+       Sqrt[145], $CellContext`j[0] = "s", $CellContext`j[1] = 
+       "p", $CellContext`j[2] = "d", $CellContext`j[3] = "f", 
+       Attributes[Superscript] = {NHoldRest, ReadProtected}, 
+       Attributes[PlotRange] = {ReadProtected}, $CellContext`levels[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]]] := Graphics[{
+          Text[
+           Style["\!\(\*SqrtBox[\(E\)]\)", 20, Italic], {-1, 10}], 
+          Text[
+           Style["l", 30, Italic], {12, -1}], 
+          Table[
+           Text[
+            Style[$CellContext`L, 12], {
+            2 $CellContext`L + 1, 1}], {$CellContext`L, 0, 6}], Thick, 
+          Arrowheads[0.06], 
+          Arrow[{{0, 0}, {0, 12}}], 
+          Arrow[{{0, 0}, {14, 0}}], 
+          Line[{{{0.4, 
+              $CellContext`k[0, 1]}, {2, 
+              $CellContext`k[0, 1]}}, {{0.4, 
+              $CellContext`k[0, 2]}, {2, 
+              $CellContext`k[0, 2]}}, {{0.4, 
+              $CellContext`k[0, 3]}, {2, 
+              $CellContext`k[0, 3]}}, {{2.4, 
+              $CellContext`k[1, 1]}, {4, 
+              $CellContext`k[1, 1]}}, {{2.4, 
+              $CellContext`k[1, 2]}, {4, 
+              $CellContext`k[1, 2]}}, {{2.4, 
+              $CellContext`k[1, 3]}, {4, 
+              $CellContext`k[1, 3]}}, {{4.4, 
+              $CellContext`k[2, 1]}, {6, 
+              $CellContext`k[2, 1]}}, {{4.4, 
+              $CellContext`k[2, 2]}, {6, 
+              $CellContext`k[2, 2]}}, {{4.4, 
+              $CellContext`k[2, 3]}, {6, 
+              $CellContext`k[2, 3]}}, {{6.4, 
+              $CellContext`k[3, 1]}, {8, 
+              $CellContext`k[3, 1]}}, {{6.4, 
+              $CellContext`k[3, 2]}, {8, 
+              $CellContext`k[3, 2]}}, {{8.4, 
+              $CellContext`k[4, 1]}, {10, 
+              $CellContext`k[4, 1]}}, {{10.4, 
+              $CellContext`k[5, 1]}, {12, 
+              $CellContext`k[5, 1]}}, {{12.4, 
+              $CellContext`k[6, 1]}, {14, 
+              $CellContext`k[6, 1]}}}], 
+          Table[
+           Text[
+            
+            Style[$CellContext`\[Alpha][$CellContext`i] \
+$CellContext`c[$CellContext`i], 18, Italic], {
+             $CellContext`x[$CellContext`i], 
+             Part[$CellContext`y, $CellContext`i] + 0.5}], {$CellContext`i, 1,
+             14}], 
+          Text[
+           Style[
+            Row[{
+              Style[
+               Subscript["E", 
+                Row[{$CellContext`n, 
+                  $CellContext`j[$CellContext`l]}]], Italic], " = ", 
+              NumberForm[$CellContext`k[$CellContext`l, $CellContext`n]^2, 4],
+               " ", 
+              Superscript[$CellContext`\[HBar], 2], "/2", 
+              Style["M", Italic], 
+              Superscript[
+               Style["R", Italic], 2]}], 20, Red, Bold], {9, 3}], 
+          Opacity[0.4], Red, 
+          
+          Rectangle[{
+           2 $CellContext`l + 
+            0.4, $CellContext`k[$CellContext`l, $CellContext`n] - 0.1}, {
+           2 $CellContext`l + 
+            2, $CellContext`k[$CellContext`l, $CellContext`n] + 1}]}], 
+       Attributes[Thick] = {ReadProtected}, $CellContext`\[Alpha][1] = 
+       "1", $CellContext`\[Alpha][2] = "2", $CellContext`\[Alpha][3] = 
+       "3", $CellContext`\[Alpha][4] = "1", $CellContext`\[Alpha][5] = 
+       "2", $CellContext`\[Alpha][6] = "3", $CellContext`\[Alpha][7] = 
+       "1", $CellContext`\[Alpha][8] = "2", $CellContext`\[Alpha][9] = 
+       "3", $CellContext`\[Alpha][10] = "1", $CellContext`\[Alpha][11] = 
+       "2", $CellContext`\[Alpha][12] = "1", $CellContext`\[Alpha][13] = 
+       "1", $CellContext`\[Alpha][14] = "1", $CellContext`c[1] = 
+       "s", $CellContext`c[2] = "s", $CellContext`c[3] = 
+       "s", $CellContext`c[4] = "p", $CellContext`c[5] = 
+       "p", $CellContext`c[6] = "p", $CellContext`c[7] = 
+       "d", $CellContext`c[8] = "d", $CellContext`c[9] = 
+       "d", $CellContext`c[10] = "f", $CellContext`c[11] = 
+       "f", $CellContext`c[12] = "g", $CellContext`c[13] = 
+       "h", $CellContext`c[14] = 
+       "i", $CellContext`y = {3.14159, 6.28319, 9.42478, 4.49341, 7.72525, 
+        10.9041, 5.76346, 9.09501, 12.3229, 6.98793, 10.4171, 8.18256, 
+        9.35581, 10.5128}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->740328019],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`l$$ = 2, $CellContext`m$$ = 
+    0, $CellContext`n$$ = 1, $CellContext`q$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`q$$], 1, "display"}, {
+      1 -> "wavefunction", 2 -> "energy levels"}}, {
+      Hold["quantum numbers:"], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`n$$], 1, 
+       Style["n", Italic]}, {1, 2, 3}}, {{
+       Hold[$CellContext`l$$], 2, 
+       Style["l", Italic]}, {0, 1, 2}}, {{
+       Hold[$CellContext`m$$], 0, 
+       Style["m", Italic]}, 
+      Dynamic[
+       Range[0, $CellContext`l$$]]}}, Typeset`size$$ = {400., {198., 202.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`q$41286$$ = False, $CellContext`n$41287$$ = 
+    0, $CellContext`l$41288$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`l$$ = 2, $CellContext`m$$ = 
+        0, $CellContext`n$$ = 1, $CellContext`q$$ = 1}, "ControllerVariables" :> {
+        Hold[$CellContext`q$$, $CellContext`q$41286$$, False], 
+        Hold[$CellContext`n$$, $CellContext`n$41287$$, 0], 
+        Hold[$CellContext`l$$, $CellContext`l$41288$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> If[$CellContext`q$$ == 1, 
+        Show[
+         $CellContext`g1[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], 
+         $CellContext`g2[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], $CellContext`g0, 
+         $CellContext`label[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], PlotRange -> 1.2, ImageSize -> {400, 400}], 
+        Pane[
+         $CellContext`levels[$CellContext`l$$, $CellContext`n$$], 
+         ImageSize -> {400, 400}, Alignment -> {Center, Center}]], 
+      "Specifications" :> {{{$CellContext`q$$, 1, "display"}, {
+         1 -> "wavefunction", 2 -> "energy levels"}, ControlType -> Setter}, 
+        Delimiter, "quantum numbers:", {{$CellContext`n$$, 1, 
+          Style["n", Italic]}, {1, 2, 3}, ControlType -> 
+         Setter}, {{$CellContext`l$$, 2, 
+          Style["l", Italic]}, {0, 1, 2}, ControlType -> 
+         Setter}, {{$CellContext`m$$, 0, 
+          Style["m", Italic]}, 
+         Dynamic[
+          Range[0, $CellContext`l$$]], ControlType -> Setter}}, 
+      "Options" :> {
+       ControlPlacement -> Left, 
+        TrackedSymbols :> {$CellContext`q$$, $CellContext`n$$, \
+$CellContext`l$$, $CellContext`m$$}, AutorunSequencing -> {1, 2, 3}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{622., {225.34375, 230.65625}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`g1[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := 
+       RegionPlot[$CellContext`\[Psi][$CellContext`l, $CellContext`n, \
+$CellContext`m, $CellContext`z, $CellContext`x] > 
+         0, {$CellContext`z, -1, 1}, {$CellContext`x, -1, 1}, Frame -> None, 
+         PlotStyle -> LightBlue], $CellContext`\[Psi][
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]], 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := 
+       SphericalBesselJ[$CellContext`l, $CellContext`k[$CellContext`l, \
+$CellContext`n] Sqrt[$CellContext`z^2 + $CellContext`x^2]] 
+        Boole[
+         Sqrt[$CellContext`z^2 + $CellContext`x^2] <= 
+          1] $CellContext`Y[$CellContext`l, $CellContext`m, $CellContext`z, \
+$CellContext`x], $CellContext`x[1] = 1, $CellContext`x[2] = 
+       1, $CellContext`x[3] = 1, $CellContext`x[4] = 3, $CellContext`x[5] = 
+       3, $CellContext`x[6] = 3, $CellContext`x[7] = 5, $CellContext`x[8] = 
+       5, $CellContext`x[9] = 5, $CellContext`x[10] = 7, $CellContext`x[11] = 
+       7, $CellContext`x[12] = 9, $CellContext`x[13] = 11, $CellContext`x[14] = 
+       13, $CellContext`k[0, 1] = 3.14159, $CellContext`k[0, 2] = 
+       6.28319, $CellContext`k[0, 3] = 9.42478, $CellContext`k[1, 1] = 
+       4.49341, $CellContext`k[1, 2] = 7.72525, $CellContext`k[1, 3] = 
+       10.9041, $CellContext`k[2, 1] = 5.76346, $CellContext`k[2, 2] = 
+       9.09501, $CellContext`k[2, 3] = 12.3229, $CellContext`k[3, 1] = 
+       6.98793, $CellContext`k[3, 2] = 10.4171, $CellContext`k[4, 1] = 
+       8.18256, $CellContext`k[5, 1] = 9.35581, $CellContext`k[6, 1] = 
+       10.5128, $CellContext`Y[0, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := 1, $CellContext`Y[1, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`z, $CellContext`Y[1, 1, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x, $CellContext`Y[2, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x^2 - 2 $CellContext`z^2, $CellContext`Y[
+        2, 1, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`z $CellContext`x, $CellContext`Y[2, 2, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x^2, $CellContext`g2[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := ContourPlot[
+         $CellContext`\[Psi][$CellContext`l, $CellContext`n, $CellContext`m, \
+$CellContext`z, $CellContext`x], {$CellContext`z, -1, 1}, {$CellContext`x, -1,
+           1}, PlotPoints -> 20, Contours -> 5, Frame -> None, ContourShading -> 
+         None], $CellContext`g0 = Graphics[{
+          Thickness[Large], 
+          Circle[{0, 0}]}], $CellContext`label[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := Graphics[
+         Text[
+          Style[
+           Row[{
+             Subscript["\[Psi]", 
+              Style[
+               Row[{$CellContext`n, $CellContext`l, $CellContext`m}], 
+               Italic]], "(", 
+             Style["r", Italic], ", \[Theta], \[Phi])       ", 
+             Style[
+              Subscript["E", 
+               Row[{$CellContext`n, 
+                 $CellContext`j[$CellContext`l]}]], Italic], " = ", 
+             NumberForm[$CellContext`k[$CellContext`l, $CellContext`n]^2, 4], 
+             " ", 
+             Superscript[$CellContext`\[HBar], 2], "/2", 
+             Style["M", Italic], 
+             Superscript[
+              Style["R", Italic], 2]}], 24, Black, Bold], {0, -1.15}]], 
+       Attributes[Subscript] = {NHoldRest}, Subscript[$CellContext`A, 1] = 
+       104.`3., Subscript[$CellContext`A, 2] = 104.`3., 
+       Subscript[$CellContext`A, 3] = 
+       Sqrt[((8 Sqrt[5] + Sqrt[65] + 
+           Sqrt[145]) ((-8) Sqrt[5] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2) (-
+            Sqrt[65] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2) (-
+            Sqrt[145] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2))/2], 
+       Subscript[$CellContext`A, 4] = 
+       Sqrt[((24 + 
+           8 Sqrt[5]) (-16 + (24 + 8 Sqrt[5])/2) (-8 + (24 + 8 Sqrt[5])/
+            2) ((-8) Sqrt[5] + (24 + 8 Sqrt[5])/2))/2], 
+       Subscript[$CellContext`d, 1] = 8 Sqrt[5], Subscript[$CellContext`d, 2] = 
+       Sqrt[145], $CellContext`j[0] = "s", $CellContext`j[1] = 
+       "p", $CellContext`j[2] = "d", $CellContext`j[3] = "f", 
+       Attributes[Superscript] = {NHoldRest, ReadProtected}, 
+       Attributes[PlotRange] = {ReadProtected}, $CellContext`levels[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]]] := Graphics[{
+          Text[
+           Style["\!\(\*SqrtBox[\(E\)]\)", 20, Italic], {-1, 10}], 
+          Text[
+           Style["l", 30, Italic], {12, -1}], 
+          Table[
+           Text[
+            Style[$CellContext`L, 12], {
+            2 $CellContext`L + 1, 1}], {$CellContext`L, 0, 6}], Thick, 
+          Arrowheads[0.06], 
+          Arrow[{{0, 0}, {0, 12}}], 
+          Arrow[{{0, 0}, {14, 0}}], 
+          Line[{{{0.4, 
+              $CellContext`k[0, 1]}, {2, 
+              $CellContext`k[0, 1]}}, {{0.4, 
+              $CellContext`k[0, 2]}, {2, 
+              $CellContext`k[0, 2]}}, {{0.4, 
+              $CellContext`k[0, 3]}, {2, 
+              $CellContext`k[0, 3]}}, {{2.4, 
+              $CellContext`k[1, 1]}, {4, 
+              $CellContext`k[1, 1]}}, {{2.4, 
+              $CellContext`k[1, 2]}, {4, 
+              $CellContext`k[1, 2]}}, {{2.4, 
+              $CellContext`k[1, 3]}, {4, 
+              $CellContext`k[1, 3]}}, {{4.4, 
+              $CellContext`k[2, 1]}, {6, 
+              $CellContext`k[2, 1]}}, {{4.4, 
+              $CellContext`k[2, 2]}, {6, 
+              $CellContext`k[2, 2]}}, {{4.4, 
+              $CellContext`k[2, 3]}, {6, 
+              $CellContext`k[2, 3]}}, {{6.4, 
+              $CellContext`k[3, 1]}, {8, 
+              $CellContext`k[3, 1]}}, {{6.4, 
+              $CellContext`k[3, 2]}, {8, 
+              $CellContext`k[3, 2]}}, {{8.4, 
+              $CellContext`k[4, 1]}, {10, 
+              $CellContext`k[4, 1]}}, {{10.4, 
+              $CellContext`k[5, 1]}, {12, 
+              $CellContext`k[5, 1]}}, {{12.4, 
+              $CellContext`k[6, 1]}, {14, 
+              $CellContext`k[6, 1]}}}], 
+          Table[
+           Text[
+            
+            Style[$CellContext`\[Alpha][$CellContext`i] \
+$CellContext`c[$CellContext`i], 18, Italic], {
+             $CellContext`x[$CellContext`i], 
+             Part[$CellContext`y, $CellContext`i] + 0.5}], {$CellContext`i, 1,
+             14}], 
+          Text[
+           Style[
+            Row[{
+              Style[
+               Subscript["E", 
+                Row[{$CellContext`n, 
+                  $CellContext`j[$CellContext`l]}]], Italic], " = ", 
+              NumberForm[$CellContext`k[$CellContext`l, $CellContext`n]^2, 4],
+               " ", 
+              Superscript[$CellContext`\[HBar], 2], "/2", 
+              Style["M", Italic], 
+              Superscript[
+               Style["R", Italic], 2]}], 20, Red, Bold], {9, 3}], 
+          Opacity[0.4], Red, 
+          
+          Rectangle[{
+           2 $CellContext`l + 
+            0.4, $CellContext`k[$CellContext`l, $CellContext`n] - 0.1}, {
+           2 $CellContext`l + 
+            2, $CellContext`k[$CellContext`l, $CellContext`n] + 1}]}], 
+       Attributes[Thick] = {ReadProtected}, $CellContext`\[Alpha][1] = 
+       "1", $CellContext`\[Alpha][2] = "2", $CellContext`\[Alpha][3] = 
+       "3", $CellContext`\[Alpha][4] = "1", $CellContext`\[Alpha][5] = 
+       "2", $CellContext`\[Alpha][6] = "3", $CellContext`\[Alpha][7] = 
+       "1", $CellContext`\[Alpha][8] = "2", $CellContext`\[Alpha][9] = 
+       "3", $CellContext`\[Alpha][10] = "1", $CellContext`\[Alpha][11] = 
+       "2", $CellContext`\[Alpha][12] = "1", $CellContext`\[Alpha][13] = 
+       "1", $CellContext`\[Alpha][14] = "1", $CellContext`c[1] = 
+       "s", $CellContext`c[2] = "s", $CellContext`c[3] = 
+       "s", $CellContext`c[4] = "p", $CellContext`c[5] = 
+       "p", $CellContext`c[6] = "p", $CellContext`c[7] = 
+       "d", $CellContext`c[8] = "d", $CellContext`c[9] = 
+       "d", $CellContext`c[10] = "f", $CellContext`c[11] = 
+       "f", $CellContext`c[12] = "g", $CellContext`c[13] = 
+       "h", $CellContext`c[14] = 
+       "i", $CellContext`y = {3.14159, 6.28319, 9.42478, 4.49341, 7.72525, 
+        10.9041, 5.76346, 9.09501, 12.3229, 6.98793, 10.4171, 8.18256, 
+        9.35581, 10.5128}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->172764615],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`l$$ = 2, $CellContext`m$$ = 
+    0, $CellContext`n$$ = 1, $CellContext`q$$ = 2, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`q$$], 1, "display"}, {
+      1 -> "wavefunction", 2 -> "energy levels"}}, {
+      Hold["quantum numbers:"], Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`n$$], 1, 
+       Style["n", Italic]}, {1, 2, 3}}, {{
+       Hold[$CellContext`l$$], 1, 
+       Style["l", Italic]}, {0, 1, 2}}, {{
+       Hold[$CellContext`m$$], 0, 
+       Style["m", Italic]}, 
+      Dynamic[
+       Range[0, $CellContext`l$$]]}}, Typeset`size$$ = {
+    400., {197.34375, 202.65625}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`q$41762$$ = 
+    False, $CellContext`n$41763$$ = 0, $CellContext`l$41764$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`l$$ = 1, $CellContext`m$$ = 
+        0, $CellContext`n$$ = 1, $CellContext`q$$ = 1}, "ControllerVariables" :> {
+        Hold[$CellContext`q$$, $CellContext`q$41762$$, False], 
+        Hold[$CellContext`n$$, $CellContext`n$41763$$, 0], 
+        Hold[$CellContext`l$$, $CellContext`l$41764$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> If[$CellContext`q$$ == 1, 
+        Show[
+         $CellContext`g1[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], 
+         $CellContext`g2[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], $CellContext`g0, 
+         $CellContext`label[$CellContext`l$$, $CellContext`n$$, \
+$CellContext`m$$], PlotRange -> 1.2, ImageSize -> {400, 400}], 
+        Pane[
+         $CellContext`levels[$CellContext`l$$, $CellContext`n$$], 
+         ImageSize -> {400, 400}, Alignment -> {Center, Center}]], 
+      "Specifications" :> {{{$CellContext`q$$, 1, "display"}, {
+         1 -> "wavefunction", 2 -> "energy levels"}, ControlType -> Setter}, 
+        Delimiter, "quantum numbers:", {{$CellContext`n$$, 1, 
+          Style["n", Italic]}, {1, 2, 3}, ControlType -> 
+         Setter}, {{$CellContext`l$$, 1, 
+          Style["l", Italic]}, {0, 1, 2}, ControlType -> 
+         Setter}, {{$CellContext`m$$, 0, 
+          Style["m", Italic]}, 
+         Dynamic[
+          Range[0, $CellContext`l$$]], ControlType -> Setter}}, 
+      "Options" :> {
+       ControlPlacement -> Left, 
+        TrackedSymbols :> {$CellContext`q$$, $CellContext`n$$, \
+$CellContext`l$$, $CellContext`m$$}, AutorunSequencing -> {1, 2, 3}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{622., {225.84375, 231.15625}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`g1[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := 
+       RegionPlot[$CellContext`\[Psi][$CellContext`l, $CellContext`n, \
+$CellContext`m, $CellContext`z, $CellContext`x] > 
+         0, {$CellContext`z, -1, 1}, {$CellContext`x, -1, 1}, Frame -> None, 
+         PlotStyle -> LightBlue], $CellContext`\[Psi][
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]], 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := 
+       SphericalBesselJ[$CellContext`l, $CellContext`k[$CellContext`l, \
+$CellContext`n] Sqrt[$CellContext`z^2 + $CellContext`x^2]] 
+        Boole[
+         Sqrt[$CellContext`z^2 + $CellContext`x^2] <= 
+          1] $CellContext`Y[$CellContext`l, $CellContext`m, $CellContext`z, \
+$CellContext`x], $CellContext`x[1] = 1, $CellContext`x[2] = 
+       1, $CellContext`x[3] = 1, $CellContext`x[4] = 3, $CellContext`x[5] = 
+       3, $CellContext`x[6] = 3, $CellContext`x[7] = 5, $CellContext`x[8] = 
+       5, $CellContext`x[9] = 5, $CellContext`x[10] = 7, $CellContext`x[11] = 
+       7, $CellContext`x[12] = 9, $CellContext`x[13] = 11, $CellContext`x[14] = 
+       13, $CellContext`k[0, 1] = 3.14159, $CellContext`k[0, 2] = 
+       6.28319, $CellContext`k[0, 3] = 9.42478, $CellContext`k[1, 1] = 
+       4.49341, $CellContext`k[1, 2] = 7.72525, $CellContext`k[1, 3] = 
+       10.9041, $CellContext`k[2, 1] = 5.76346, $CellContext`k[2, 2] = 
+       9.09501, $CellContext`k[2, 3] = 12.3229, $CellContext`k[3, 1] = 
+       6.98793, $CellContext`k[3, 2] = 10.4171, $CellContext`k[4, 1] = 
+       8.18256, $CellContext`k[5, 1] = 9.35581, $CellContext`k[6, 1] = 
+       10.5128, $CellContext`Y[0, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := 1, $CellContext`Y[1, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`z, $CellContext`Y[1, 1, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x, $CellContext`Y[2, 0, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x^2 - 2 $CellContext`z^2, $CellContext`Y[
+        2, 1, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`z $CellContext`x, $CellContext`Y[2, 2, 
+         Pattern[$CellContext`z, 
+          Blank[]], 
+         Pattern[$CellContext`x, 
+          Blank[]]] := $CellContext`x^2, $CellContext`g2[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := ContourPlot[
+         $CellContext`\[Psi][$CellContext`l, $CellContext`n, $CellContext`m, \
+$CellContext`z, $CellContext`x], {$CellContext`z, -1, 1}, {$CellContext`x, -1,
+           1}, PlotPoints -> 20, Contours -> 5, Frame -> None, ContourShading -> 
+         None], $CellContext`g0 = Graphics[{
+          Thickness[Large], 
+          Circle[{0, 0}]}], $CellContext`label[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`m, 
+          Blank[]]] := Graphics[
+         Text[
+          Style[
+           Row[{
+             Subscript["\[Psi]", 
+              Style[
+               Row[{$CellContext`n, $CellContext`l, $CellContext`m}], 
+               Italic]], "(", 
+             Style["r", Italic], ", \[Theta], \[Phi])       ", 
+             Style[
+              Subscript["E", 
+               Row[{$CellContext`n, 
+                 $CellContext`j[$CellContext`l]}]], Italic], " = ", 
+             NumberForm[$CellContext`k[$CellContext`l, $CellContext`n]^2, 4], 
+             " ", 
+             Superscript[$CellContext`\[HBar], 2], "/2", 
+             Style["M", Italic], 
+             Superscript[
+              Style["R", Italic], 2]}], 24, Black, Bold], {0, -1.15}]], 
+       Attributes[Subscript] = {NHoldRest}, Subscript[Notebook$$33`A, 1] = 
+       104.`3., Subscript[Notebook$$33`A, 2] = 104.`3., 
+       Subscript[Notebook$$33`A, 3] = 
+       Sqrt[((8 Sqrt[5] + Sqrt[65] + 
+           Sqrt[145]) ((-8) Sqrt[5] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2) (-
+            Sqrt[65] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2) (-
+            Sqrt[145] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2))/2], 
+       Subscript[Notebook$$33`A, 4] = 
+       Sqrt[((24 + 
+           8 Sqrt[5]) (-16 + (24 + 8 Sqrt[5])/2) (-8 + (24 + 8 Sqrt[5])/
+            2) ((-8) Sqrt[5] + (24 + 8 Sqrt[5])/2))/2], 
+       Subscript[$CellContext`A, 1] = 104.`3., Subscript[$CellContext`A, 2] = 
+       104.`3., Subscript[$CellContext`A, 3] = 
+       Sqrt[((8 Sqrt[5] + Sqrt[65] + 
+           Sqrt[145]) ((-8) Sqrt[5] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2) (-
+            Sqrt[65] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2) (-
+            Sqrt[145] + (8 Sqrt[5] + Sqrt[65] + Sqrt[145])/2))/2], 
+       Subscript[$CellContext`A, 4] = 
+       Sqrt[((24 + 
+           8 Sqrt[5]) (-16 + (24 + 8 Sqrt[5])/2) (-8 + (24 + 8 Sqrt[5])/
+            2) ((-8) Sqrt[5] + (24 + 8 Sqrt[5])/2))/2], 
+       Subscript[Notebook$$33`d, 1] = 8 Sqrt[5], Subscript[Notebook$$33`d, 2] = 
+       Sqrt[145], Subscript[$CellContext`d, 1] = 8 Sqrt[5], 
+       Subscript[$CellContext`d, 2] = Sqrt[145], $CellContext`j[0] = 
+       "s", $CellContext`j[1] = "p", $CellContext`j[2] = 
+       "d", $CellContext`j[3] = "f", 
+       Attributes[Superscript] = {NHoldRest, ReadProtected}, 
+       Attributes[PlotRange] = {ReadProtected}, $CellContext`levels[
+         Pattern[$CellContext`l, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]]] := Graphics[{
+          Text[
+           Style["\!\(\*SqrtBox[\(E\)]\)", 20, Italic], {-1, 10}], 
+          Text[
+           Style["l", 30, Italic], {12, -1}], 
+          Table[
+           Text[
+            Style[$CellContext`L, 12], {
+            2 $CellContext`L + 1, 1}], {$CellContext`L, 0, 6}], Thick, 
+          Arrowheads[0.06], 
+          Arrow[{{0, 0}, {0, 12}}], 
+          Arrow[{{0, 0}, {14, 0}}], 
+          Line[{{{0.4, 
+              $CellContext`k[0, 1]}, {2, 
+              $CellContext`k[0, 1]}}, {{0.4, 
+              $CellContext`k[0, 2]}, {2, 
+              $CellContext`k[0, 2]}}, {{0.4, 
+              $CellContext`k[0, 3]}, {2, 
+              $CellContext`k[0, 3]}}, {{2.4, 
+              $CellContext`k[1, 1]}, {4, 
+              $CellContext`k[1, 1]}}, {{2.4, 
+              $CellContext`k[1, 2]}, {4, 
+              $CellContext`k[1, 2]}}, {{2.4, 
+              $CellContext`k[1, 3]}, {4, 
+              $CellContext`k[1, 3]}}, {{4.4, 
+              $CellContext`k[2, 1]}, {6, 
+              $CellContext`k[2, 1]}}, {{4.4, 
+              $CellContext`k[2, 2]}, {6, 
+              $CellContext`k[2, 2]}}, {{4.4, 
+              $CellContext`k[2, 3]}, {6, 
+              $CellContext`k[2, 3]}}, {{6.4, 
+              $CellContext`k[3, 1]}, {8, 
+              $CellContext`k[3, 1]}}, {{6.4, 
+              $CellContext`k[3, 2]}, {8, 
+              $CellContext`k[3, 2]}}, {{8.4, 
+              $CellContext`k[4, 1]}, {10, 
+              $CellContext`k[4, 1]}}, {{10.4, 
+              $CellContext`k[5, 1]}, {12, 
+              $CellContext`k[5, 1]}}, {{12.4, 
+              $CellContext`k[6, 1]}, {14, 
+              $CellContext`k[6, 1]}}}], 
+          Table[
+           Text[
+            
+            Style[$CellContext`\[Alpha][$CellContext`i] \
+$CellContext`c[$CellContext`i], 18, Italic], {
+             $CellContext`x[$CellContext`i], 
+             Part[$CellContext`y, $CellContext`i] + 0.5}], {$CellContext`i, 1,
+             14}], 
+          Text[
+           Style[
+            Row[{
+              Style[
+               Subscript["E", 
+                Row[{$CellContext`n, 
+                  $CellContext`j[$CellContext`l]}]], Italic], " = ", 
+              NumberForm[$CellContext`k[$CellContext`l, $CellContext`n]^2, 4],
+               " ", 
+              Superscript[$CellContext`\[HBar], 2], "/2", 
+              Style["M", Italic], 
+              Superscript[
+               Style["R", Italic], 2]}], 20, Red, Bold], {9, 3}], 
+          Opacity[0.4], Red, 
+          
+          Rectangle[{
+           2 $CellContext`l + 
+            0.4, $CellContext`k[$CellContext`l, $CellContext`n] - 0.1}, {
+           2 $CellContext`l + 
+            2, $CellContext`k[$CellContext`l, $CellContext`n] + 1}]}], 
+       Attributes[Thick] = {ReadProtected}, $CellContext`\[Alpha][1] = 
+       "1", $CellContext`\[Alpha][2] = "2", $CellContext`\[Alpha][3] = 
+       "3", $CellContext`\[Alpha][4] = "1", $CellContext`\[Alpha][5] = 
+       "2", $CellContext`\[Alpha][6] = "3", $CellContext`\[Alpha][7] = 
+       "1", $CellContext`\[Alpha][8] = "2", $CellContext`\[Alpha][9] = 
+       "3", $CellContext`\[Alpha][10] = "1", $CellContext`\[Alpha][11] = 
+       "2", $CellContext`\[Alpha][12] = "1", $CellContext`\[Alpha][13] = 
+       "1", $CellContext`\[Alpha][14] = "1", $CellContext`c[1] = 
+       "s", $CellContext`c[2] = "s", $CellContext`c[3] = 
+       "s", $CellContext`c[4] = "p", $CellContext`c[5] = 
+       "p", $CellContext`c[6] = "p", $CellContext`c[7] = 
+       "d", $CellContext`c[8] = "d", $CellContext`c[9] = 
+       "d", $CellContext`c[10] = "f", $CellContext`c[11] = 
+       "f", $CellContext`c[12] = "g", $CellContext`c[13] = 
+       "h", $CellContext`c[14] = 
+       "i", $CellContext`y = {3.14159, 6.28319, 9.42478, 4.49341, 7.72525, 
+        10.9041, 5.76346, 9.09501, 12.3229, 6.98793, 10.4171, 8.18256, 
+        9.35581, 10.5128}}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.35696210375764*^9, 3.4638396763710012`*^9},
+ CellID->1247636181]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "DetailsSection"],
+
+Cell["\<\
+Snapshots 1\[Dash]3: the three lowest energy states\
+\>", "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.4412372373477077`*^9, 3.441237292081702*^9}, {
+   3.441393779460676*^9, 3.4413937869154215`*^9}},
+ CellID->706416965],
+
+Cell["Snapshot 4: energy-level diagram", "DetailNotes",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.441237286733962*^9, 3.441237315643506*^9}, 
+   3.441393795363266*^9},
+ CellID->1460330139]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "ControlSuggestionsSection"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[True], Cell[" Resize Images"]}],
+  "\"Click inside an image to reveal its orange resize frame.\\nDrag any of \
+the orange resize handles to resize the image.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.44138785176097*^9},
+ FontFamily->"Verdana",
+ CellTags->"ResizeImages"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Rotate and Zoom in 3D"]}],
+  RowBox[{
+   "\"Drag a 3D graphic to rotate it. Starting the drag near the center \
+tumbles\\nthe graphic; starting near a corner turns it parallel to the plane \
+of the screen.\\nHold down \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" (or \"", 
+    FrameBox[
+    "Cmd", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" on Mac) and drag up and down to zoom.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"RotateAndZoomIn3D"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Drag Locators"]}],
+  RowBox[{"\"Drag any locator (\"", 
+    GraphicsBox[
+     LocatorBox[
+      Scaled[{0.5, 0.5}]], ImageSize -> 20], 
+    "\", etc.) to move it around.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"DragLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Create and Delete Locators"]}],
+  RowBox[{"\"Insert a new locator in the graphic by holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key\\nand clicking where you want it to be. Delete a locator by \
+clicking it\\nwhile holding down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" key.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"CreateAndDeleteLocators"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Slider Zoom"]}],
+  RowBox[{"\"Hold down the \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], 
+    "\" key while moving a slider to make fine adjustments in the slider \
+value.\\nHold \"", 
+    FrameBox[
+    "Ctrl", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" and/or \"", 
+    FrameBox[
+    "Shift", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" at the same time as \"", 
+    FrameBox[
+    "Alt", Background -> GrayLevel[0.9], FrameMargins -> 2, FrameStyle -> 
+     GrayLevel[0.9]], "\" to make ever finer adjustments.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"SliderZoom"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Gamepad Controls"]}],
+  "\"Control this Demonstration with a gamepad or other\\nhuman interface \
+device connected to your computer.\"",
+  TooltipDelay->0.35]], "ControlSuggestions",
+ CellChangeTimes->{3.35696210375764*^9, 3.3895522232313623`*^9},
+ FontFamily->"Verdana",
+ CellTags->"GamepadControls"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Automatic Animation"]}],
+  RowBox[{"\"Animate a slider in this Demonstration by clicking the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJzzTSzJSM1NLMlMTlRwL0osyMhMLlZwyy8CCjEzMjAwcIKwAgOI/R/IhBKc\n\
+/4EAyGAG0f+nTZsGwgysIJIRKsWKLAXGIHFmEpUgLADxWUAkI24jZs+eTaEt\n\
+IG+wQKRmzJgBlYf5lhEA30OqWA=="], "Graphics", ImageSize -> {9, 9}, ImageMargins -> 
+      0, CellBaseline -> Baseline], BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"button\\nnext to the slider, and then clicking the play button that \
+appears.\\nAnimate all controls by selecting \"", 
+    StyleBox["Autorun", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"AutomaticAnimation"],
+
+Cell[BoxData[
+ TooltipBox[
+  RowBox[{
+   CheckboxBox[False], Cell[" Bookmark Animation"]}],
+  RowBox[{
+   "\"See a prepared animation of this Demonstration by selecting\\n\"", 
+    StyleBox["Animate Bookmarks", FontWeight -> "Bold"], "\" from the\"", 
+    AdjustmentBox[
+     Cell[
+      GraphicsData[
+      "CompressedBitmap", 
+       "eJyNULENwyAQfEySIlMwTVJlCGRFsosokeNtqBmDBagoaZjAI1C8/8GUUUC6\n\
+57h7cQ8PvU7Pl17nUav7oj/TPH7V7b2QJAUAXBkKmCPRowxICy64bRvGGNF7\n\
+X8CctGoDSN4xhIDGGDhzFXwUh3/ClBKrDQPmnGXtI6u0OOd+tZBVUqy1xSaH\n\
+UqiK6pPe4XdEdAz6563tx/gejuORGMxJaz8mdpJn7hc="], "Graphics", 
+      ImageSize -> {10, 10}, ImageMargins -> 0, CellBaseline -> Baseline], 
+     BoxBaselineShift -> 0.1839080459770115, 
+     BoxMargins -> {{0., 0.}, {-0.1839080459770115, 0.1839080459770115}}], 
+    "\"menu.\""}],
+  TooltipDelay->0.35]], "ControlSuggestions",
+ FontFamily->"Verdana",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SearchTermsSection"],
+
+Cell["physics", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.441232581000169*^9, 3.441232601555654*^9}, {
+   3.4413878536441584`*^9, 3.4413878648132753`*^9}},
+ CellID->292806680],
+
+Cell["college physics", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.441232581000169*^9, 3.441232601555654*^9}, {
+   3.4413878536441584`*^9, 3.441387863254119*^9}},
+ CellID->57162380],
+
+Cell["quantum mechanics", "SearchTerms",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.441232581000169*^9, 3.441232601555654*^9}, {
+   3.4413878536441584`*^9, 3.441387859720766*^9}},
+ CellID->11421451]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "RelatedLinksSection"],
+
+Cell[TextData[ButtonBox["Schr\[ODoubleDot]dinger Equation",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/SchroedingerEquation.html"], None},
+ ButtonNote->
+  "http://mathworld.wolfram.com/SchroedingerEquation.html"]], "RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.441237806436914*^9, 3.441237836025847*^9}},
+ CellID->178044610],
+
+Cell[TextData[ButtonBox["Spherical Bessel Function",
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://mathworld.wolfram.com/SphericalBesselFunction.html"], None},
+ ButtonNote->
+  "http://mathworld.wolfram.com/SphericalBesselFunction.html"]], \
+"RelatedLinks",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.441232873067546*^9, 3.441232903771451*^9}},
+ CellID->1316835483]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "AuthorSection"],
+
+Cell[TextData[{
+ "Contributed by: ",
+ ButtonBox["S. M. Blinder",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=S.+M.+Blinder"],
+     None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=S.+M.+Blinder"]
+}], "Author",
+ CellChangeTimes->{
+  3.35696210375764*^9, {3.441232555118455*^9, 3.441232568280361*^9}},
+ CellID->192571587]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{920, 895},
+WindowMargins->{{-27, Automatic}, {Automatic, 0}},
+Magnification->1.,
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 15, 2008)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Demonstration.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ResizeImages"->{
+  Cell[117913, 2793, 373, 9, 29, "ControlSuggestions",
+   CellTags->"ResizeImages"]},
+ "RotateAndZoomIn3D"->{
+  Cell[118289, 2804, 678, 16, 29, "ControlSuggestions",
+   CellTags->"RotateAndZoomIn3D"]},
+ "DragLocators"->{
+  Cell[118970, 2822, 340, 11, 29, "ControlSuggestions",
+   CellTags->"DragLocators"]},
+ "CreateAndDeleteLocators"->{
+  Cell[119313, 2835, 637, 15, 29, "ControlSuggestions",
+   CellTags->"CreateAndDeleteLocators"]},
+ "SliderZoom"->{
+  Cell[119953, 2852, 844, 21, 29, "ControlSuggestions",
+   CellTags->"SliderZoom"]},
+ "GamepadControls"->{
+  Cell[120800, 2875, 369, 9, 29, "ControlSuggestions",
+   CellTags->"GamepadControls"]},
+ "AutomaticAnimation"->{
+  Cell[121172, 2886, 1464, 31, 29, "ControlSuggestions",
+   CellTags->"AutomaticAnimation"]},
+ "BookmarkAnimation"->{
+  Cell[122639, 2919, 908, 21, 29, "ControlSuggestions",
+   CellTags->"BookmarkAnimation"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ResizeImages", 125927, 3024},
+ {"RotateAndZoomIn3D", 126037, 3027},
+ {"DragLocators", 126148, 3030},
+ {"CreateAndDeleteLocators", 126265, 3033},
+ {"SliderZoom", 126380, 3036},
+ {"GamepadControls", 126487, 3039},
+ {"AutomaticAnimation", 126601, 3042},
+ {"BookmarkAnimation", 126719, 3045}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 203, 3, 74, "DemoTitle"],
+Cell[CellGroupData[{
+Cell[795, 29, 53, 1, 266, "InitializationSection",
+ CellID->142240353],
+Cell[851, 32, 494, 14, 23, "Input",
+ InitializationCell->True,
+ CellID->26758279],
+Cell[1348, 48, 1927, 57, 114, "Input",
+ InitializationCell->True,
+ CellID->389112961],
+Cell[3278, 107, 1422, 35, 45, "Input",
+ InitializationCell->True,
+ CellID->431756264],
+Cell[4703, 144, 1293, 32, 39, "Input",
+ InitializationCell->True,
+ CellID->143511145],
+Cell[5999, 178, 888, 24, 23, "Input",
+ InitializationCell->True,
+ CellID->336112153],
+Cell[6890, 204, 1053, 25, 39, "Input",
+ InitializationCell->True,
+ CellID->51022831],
+Cell[7946, 231, 746, 16, 23, "Input",
+ InitializationCell->True,
+ CellID->623286515],
+Cell[8695, 249, 3333, 70, 123, "Input",
+ InitializationCell->True,
+ CellID->425921829],
+Cell[12031, 321, 503, 14, 23, "Input",
+ InitializationCell->True,
+ CellID->145981728],
+Cell[12537, 337, 1250, 36, 39, "Input",
+ InitializationCell->True,
+ CellID->210880503],
+Cell[13790, 375, 1150, 34, 54, "Input",
+ InitializationCell->True,
+ CellID->298981660],
+Cell[14943, 411, 1195, 35, 39, "Input",
+ InitializationCell->True,
+ CellID->776131466],
+Cell[16141, 448, 533, 12, 39, "Input",
+ InitializationCell->True,
+ CellID->66954149],
+Cell[16677, 462, 12157, 307, 266, "Input",
+ InitializationCell->True,
+ CellID->428650063]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28871, 774, 29, 0, 230, "ManipulateSection"],
+Cell[CellGroupData[{
+Cell[28925, 778, 4272, 95, 189, "Input"],
+Cell[33200, 875, 13341, 288, 468, "Output",
+ CellID->701165610]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[46590, 1169, 36, 0, 166, "ManipulateCaptionSection"],
+Cell[46629, 1171, 5082, 144, 129, "ManipulateCaption"],
+Cell[51714, 1317, 1674, 42, 68, "ManipulateCaption",
+ CellID->87496799]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[53425, 1364, 28, 0, 168, "ThumbnailSection"],
+Cell[53456, 1366, 12612, 275, 468, "Output",
+ CellID->1483065164]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[66105, 1646, 28, 0, 138, "SnapshotsSection"],
+Cell[66136, 1648, 12610, 275, 468, "Output",
+ CellID->33520619],
+Cell[78749, 1925, 12611, 275, 468, "Output",
+ CellID->740328019],
+Cell[91363, 2202, 12611, 275, 468, "Output",
+ CellID->172764615],
+Cell[103977, 2479, 13352, 288, 470, "Output",
+ CellID->1247636181]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[117366, 2772, 26, 0, 338, "DetailsSection"],
+Cell[117395, 2774, 246, 6, 22, "DetailNotes",
+ CellID->706416965],
+Cell[117644, 2782, 192, 4, 21, "DetailNotes",
+ CellID->1460330139]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[117873, 2791, 37, 0, 120, "ControlSuggestionsSection"],
+Cell[117913, 2793, 373, 9, 29, "ControlSuggestions",
+ CellTags->"ResizeImages"],
+Cell[118289, 2804, 678, 16, 29, "ControlSuggestions",
+ CellTags->"RotateAndZoomIn3D"],
+Cell[118970, 2822, 340, 11, 29, "ControlSuggestions",
+ CellTags->"DragLocators"],
+Cell[119313, 2835, 637, 15, 29, "ControlSuggestions",
+ CellTags->"CreateAndDeleteLocators"],
+Cell[119953, 2852, 844, 21, 29, "ControlSuggestions",
+ CellTags->"SliderZoom"],
+Cell[120800, 2875, 369, 9, 29, "ControlSuggestions",
+ CellTags->"GamepadControls"],
+Cell[121172, 2886, 1464, 31, 29, "ControlSuggestions",
+ CellTags->"AutomaticAnimation"],
+Cell[122639, 2919, 908, 21, 29, "ControlSuggestions",
+ CellTags->"BookmarkAnimation"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[123584, 2945, 30, 0, 152, "SearchTermsSection"],
+Cell[123617, 2947, 194, 4, 21, "SearchTerms",
+ CellID->292806680],
+Cell[123814, 2953, 199, 4, 21, "SearchTerms",
+ CellID->57162380],
+Cell[124016, 2959, 201, 4, 21, "SearchTerms",
+ CellID->11421451]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[124254, 2968, 31, 0, 138, "RelatedLinksSection"],
+Cell[124288, 2970, 374, 8, 22, "RelatedLinks",
+ CellID->178044610],
+Cell[124665, 2980, 376, 9, 21, "RelatedLinks",
+ CellID->1316835483]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[125078, 2994, 25, 0, 136, "AuthorSection"],
+Cell[125106, 2996, 409, 12, 21, "Author",
+ CellID->192571587]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
